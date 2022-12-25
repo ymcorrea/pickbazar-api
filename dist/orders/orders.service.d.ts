@@ -1,0 +1,42 @@
+import { CreateOrderDto } from './dto/create-order.dto';
+import { GetOrdersDto, OrderPaginator } from './dto/get-orders.dto';
+import { UpdateOrderDto } from './dto/update-order.dto';
+import { Order, OrderFiles } from './entities/order.entity';
+import { OrderStatus } from './entities/order-status.entity';
+import { GetOrderStatusesDto, OrderStatusPaginator } from './dto/get-order-statuses.dto';
+import { CheckoutVerificationDto, VerifiedCheckoutData } from './dto/verify-checkout.dto';
+import { CreateOrderStatusDto, UpdateOrderStatusDto } from './dto/create-order-status.dto';
+import { GetOrderFilesDto } from './dto/get-downloads.dto';
+export declare class OrdersService {
+    private orders;
+    private orderStatus;
+    private orderFiles;
+    create(createOrderInput: CreateOrderDto): Order;
+    getOrders({ limit, page, customer_id, tracking_number, search, shop_id, }: GetOrdersDto): OrderPaginator;
+    getOrderById(id: string): Order;
+    getOrderByTrackingNumber(tracking_number: string): Order;
+    getOrderStatuses({ limit, page, search, orderBy, }: GetOrderStatusesDto): OrderStatusPaginator;
+    getOrderStatus(param: string, language: string): OrderStatus;
+    update(id: number, updateOrderInput: UpdateOrderDto): Order;
+    remove(id: number): string;
+    verifyCheckout(input: CheckoutVerificationDto): VerifiedCheckoutData;
+    createOrderStatus(createOrderStatusInput: CreateOrderStatusDto): OrderStatus;
+    updateOrderStatus(updateOrderStatusInput: UpdateOrderStatusDto): OrderStatus;
+    getOrderFileItems({ page, limit }: GetOrderFilesDto): Promise<{
+        count: number;
+        current_page: number;
+        firstItem: number;
+        lastItem: number;
+        last_page: number;
+        per_page: number;
+        total: number;
+        first_page_url: string;
+        last_page_url: string;
+        next_page_url: string;
+        prev_page_url: string;
+        data: OrderFiles[];
+    }>;
+    getDigitalFileDownloadUrl(digitalFileId: number): Promise<string>;
+    exportOrder(shop_id: string): Promise<string>;
+    downloadInvoiceUrl(shop_id: string): Promise<string>;
+}
