@@ -1,18 +1,37 @@
-import { Address } from 'src/addresses/entities/address.entity';
-import { CoreEntity } from 'src/common/entities/core.entity';
+import { CoreEntity } from "src/common/entities/core.entity";
 // import { Order } from 'src/orders/entities/order.entity';
-import { Shop } from 'src/shops/entities/shop.entity';
-import { Profile } from './profile.entity';
+import { Column, Entity } from "typeorm";
 
+@Entity()
 export class User extends CoreEntity {
+  @Column()
   name: string;
+
+  @Column()
   email: string;
+
+  @Column()
   password?: string;
-  shop_id?: number;
-  profile?: Profile;
-  shops?: Shop[];
-  managed_shop?: Shop;
-  is_active?: boolean = true;
-  address?: Address[];
+
+  @Column()
+  salt: string;
+
+  // @Column()
+  // shop_id?: number;
+
+  // @Column()
+  // profile?: Profile;
+
+  // @Column()
+  // shops?: Shop[];
+
+  // @Column()
+  // managed_shop?: Shop;
+
+  // @Column()
+  // is_active?: boolean = true;
+
+  // @Column()
+  // address?: Address[];
   // orders?: Order[];
 }

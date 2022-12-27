@@ -8,39 +8,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const users_module_1 = require("./users/users.module");
-const common_module_1 = require("./common/common.module");
-const products_module_1 = require("./products/products.module");
-const orders_module_1 = require("./orders/orders.module");
-const categories_module_1 = require("./categories/categories.module");
+const typeorm_1 = require("@nestjs/typeorm");
+const addresses_module_1 = require("./addresses/addresses.module");
 const analytics_module_1 = require("./analytics/analytics.module");
 const attributes_module_1 = require("./attributes/attributes.module");
-const shippings_module_1 = require("./shippings/shippings.module");
-const taxes_module_1 = require("./taxes/taxes.module");
-const tags_module_1 = require("./tags/tags.module");
-const shops_module_1 = require("./shops/shops.module");
-const types_module_1 = require("./types/types.module");
-const withdraws_module_1 = require("./withdraws/withdraws.module");
-const uploads_module_1 = require("./uploads/uploads.module");
-const settings_module_1 = require("./settings/settings.module");
-const coupons_module_1 = require("./coupons/coupons.module");
-const addresses_module_1 = require("./addresses/addresses.module");
-const imports_module_1 = require("./imports/imports.module");
 const auth_module_1 = require("./auth/auth.module");
-const refunds_module_1 = require("./refunds/refunds.module");
 const authors_module_1 = require("./authors/authors.module");
+const categories_module_1 = require("./categories/categories.module");
+const common_module_1 = require("./common/common.module");
+const typeorm_config_1 = require("./config/typeorm.config");
+const coupons_module_1 = require("./coupons/coupons.module");
+const feedbacks_module_1 = require("./feedbacks/feedbacks.module");
+const imports_module_1 = require("./imports/imports.module");
 const manufacturers_module_1 = require("./manufacturers/manufacturers.module");
 const newsletters_module_1 = require("./newsletters/newsletters.module");
-const reviews_module_1 = require("./reviews/reviews.module");
+const orders_module_1 = require("./orders/orders.module");
+const products_module_1 = require("./products/products.module");
 const questions_module_1 = require("./questions/questions.module");
-const wishlists_module_1 = require("./wishlists/wishlists.module");
+const refunds_module_1 = require("./refunds/refunds.module");
 const reports_module_1 = require("./reports/reports.module");
-const feedbacks_module_1 = require("./feedbacks/feedbacks.module");
+const reviews_module_1 = require("./reviews/reviews.module");
+const settings_module_1 = require("./settings/settings.module");
+const shippings_module_1 = require("./shippings/shippings.module");
+const shops_module_1 = require("./shops/shops.module");
+const tags_module_1 = require("./tags/tags.module");
+const taxes_module_1 = require("./taxes/taxes.module");
+const types_module_1 = require("./types/types.module");
+const uploads_module_1 = require("./uploads/uploads.module");
+const users_module_1 = require("./users/users.module");
+const wishlists_module_1 = require("./wishlists/wishlists.module");
+const withdraws_module_1 = require("./withdraws/withdraws.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.DatabaseConfig),
             users_module_1.UsersModule,
             common_module_1.CommonModule,
             products_module_1.ProductsModule,

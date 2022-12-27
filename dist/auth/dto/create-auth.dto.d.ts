@@ -1,5 +1,5 @@
-import { CoreMutationOutput } from 'src/common/dto/core-mutation-output.dto';
-import { User } from 'src/users/entities/user.entity';
+import { CoreMutationOutput } from "src/common/dto/core-mutation-output.dto";
+import { User } from "src/users/entities/user.entity";
 declare enum Permission {
     SUPER_ADMIN = "Super admin",
     STORE_OWNER = "Store owner",

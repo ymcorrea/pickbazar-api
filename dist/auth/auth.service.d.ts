@@ -1,7 +1,11 @@
-import { AuthResponse, ChangePasswordDto, ForgetPasswordDto, LoginDto, CoreResponse, RegisterDto, ResetPasswordDto, VerifyForgetPasswordDto, SocialLoginDto, OtpLoginDto, OtpResponse, VerifyOtpDto, OtpDto } from './dto/create-auth.dto';
-import { User } from 'src/users/entities/user.entity';
+import { JwtService } from "@nestjs/jwt";
+import { User } from "src/users/entities/user.entity";
+import { Repository } from "typeorm";
+import { AuthResponse, ChangePasswordDto, CoreResponse, ForgetPasswordDto, LoginDto, OtpDto, OtpLoginDto, OtpResponse, RegisterDto, ResetPasswordDto, SocialLoginDto, VerifyForgetPasswordDto, VerifyOtpDto } from "./dto/create-auth.dto";
 export declare class AuthService {
-    private users;
+    private usersRepository;
+    private readonly jwtService;
+    constructor(usersRepository: Repository<User>, jwtService: JwtService);
     register(createUserInput: RegisterDto): Promise<AuthResponse>;
     login(loginInput: LoginDto): Promise<AuthResponse>;
     changePassword(changePasswordInput: ChangePasswordDto): Promise<CoreResponse>;
@@ -12,5 +16,5 @@ export declare class AuthService {
     otpLogin(otpLoginDto: OtpLoginDto): Promise<AuthResponse>;
     verifyOtpCode(verifyOtpInput: VerifyOtpDto): Promise<CoreResponse>;
     sendOtpCode(otpInput: OtpDto): Promise<OtpResponse>;
-    me(): User;
+    findUserByEmail(email: string): Promise<User>;
 }

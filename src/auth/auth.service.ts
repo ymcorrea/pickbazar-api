@@ -1,50 +1,90 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+} from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
+import { InjectRepository } from "@nestjs/typeorm";
+import * as bycript from "bcryptjs";
+import { User } from "src/users/entities/user.entity";
+import { Repository } from "typeorm";
 import {
   AuthResponse,
   ChangePasswordDto,
+  CoreResponse,
   ForgetPasswordDto,
   LoginDto,
-  CoreResponse,
-  RegisterDto,
-  ResetPasswordDto,
-  VerifyForgetPasswordDto,
-  SocialLoginDto,
+  OtpDto,
   OtpLoginDto,
   OtpResponse,
+  RegisterDto,
+  ResetPasswordDto,
+  SocialLoginDto,
+  VerifyForgetPasswordDto,
   VerifyOtpDto,
-  OtpDto,
-} from './dto/create-auth.dto';
-import { v4 as uuidv4 } from 'uuid';
-import { plainToClass } from 'class-transformer';
-import { User } from 'src/users/entities/user.entity';
-import usersJson from '@db/users.json';
-const users = plainToClass(User, usersJson);
+} from "./dto/create-auth.dto";
 
 @Injectable()
 export class AuthService {
-  private users: User[] = users;
-  async register(createUserInput: RegisterDto): Promise<AuthResponse> {
-    const user: User = {
-      id: uuidv4(),
-      ...users[0],
-      ...createUserInput,
-      created_at: new Date(),
-      updated_at: new Date(),
-    };
+  constructor(
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
+    private readonly jwtService: JwtService,
+  ) {}
 
-    this.users.push(user);
-    return {
-      token: 'jwt token',
-      permissions: ['super_admin', 'customer'],
-    };
+  async register(createUserInput: RegisterDto): Promise<AuthResponse> {
+    const { name, email, password } = createUserInput;
+    const salt = await bycript.genSalt();
+    const hashPassword = await bycript.hash(password, salt);
+
+    const user = this.usersRepository.create({
+      email: email,
+      name: name,
+      password: hashPassword,
+      salt: salt,
+    });
+
+    const existingUser = await this.findUserByEmail(email);
+    console.log(existingUser);
+    if (existingUser?.email) {
+      throw new ConflictException("This email alrady taken!");
+    }
+
+    const result = await this.usersRepository.save(user);
+
+    // genarate JWT token
+    // const accessToken = await this.jwtService.sign(result.profile);
+
+    if (result?.email) {
+      return {
+        token: "accessToken",
+        permissions: ["super_admin", "customer"],
+      };
+    }
   }
+
   async login(loginInput: LoginDto): Promise<AuthResponse> {
-    console.log(loginInput);
+    const { email, password } = loginInput;
+    const user = await this.findUserByEmail(email);
+    if (!user) {
+      throw new ConflictException("User does not exist!");
+    }
+    const salt = user.salt;
+    const hashPassword = await bycript.hash(password, salt);
+    const db_password = user.password;
+
+    if (!(hashPassword === db_password)) {
+      throw new BadRequestException("Password does not match!");
+    }
+
+    // const accessToken = await this.jwtService.sign(user.profile);
+
     return {
-      token: 'jwt token',
-      permissions: ['super_admin', 'customer'],
+      token: "accessToken",
+      permissions: ["super_admin", "customer"],
     };
   }
+
   async changePassword(
     changePasswordInput: ChangePasswordDto,
   ): Promise<CoreResponse> {
@@ -52,9 +92,10 @@ export class AuthService {
 
     return {
       success: true,
-      message: 'Password change successful',
+      message: "Password change successful",
     };
   }
+
   async forgetPassword(
     forgetPasswordInput: ForgetPasswordDto,
   ): Promise<CoreResponse> {
@@ -62,9 +103,10 @@ export class AuthService {
 
     return {
       success: true,
-      message: 'Password change successful',
+      message: "Password change successful",
     };
   }
+
   async verifyForgetPasswordToken(
     verifyForgetPasswordTokenInput: VerifyForgetPasswordDto,
   ): Promise<CoreResponse> {
@@ -72,9 +114,10 @@ export class AuthService {
 
     return {
       success: true,
-      message: 'Password change successful',
+      message: "Password change successful",
     };
   }
+
   async resetPassword(
     resetPasswordInput: ResetPasswordDto,
   ): Promise<CoreResponse> {
@@ -82,63 +125,51 @@ export class AuthService {
 
     return {
       success: true,
-      message: 'Password change successful',
+      message: "Password change successful",
     };
   }
+
   async socialLogin(socialLoginDto: SocialLoginDto): Promise<AuthResponse> {
     console.log(socialLoginDto);
     return {
-      token: 'jwt token',
-      permissions: ['super_admin', 'customer'],
+      token: "jwt token",
+      permissions: ["super_admin", "customer"],
     };
   }
+
   async otpLogin(otpLoginDto: OtpLoginDto): Promise<AuthResponse> {
     console.log(otpLoginDto);
     return {
-      token: 'jwt token',
-      permissions: ['super_admin', 'customer'],
+      token: "jwt token",
+      permissions: ["super_admin", "customer"],
     };
   }
+
   async verifyOtpCode(verifyOtpInput: VerifyOtpDto): Promise<CoreResponse> {
     console.log(verifyOtpInput);
     return {
-      message: 'success',
+      message: "success",
       success: true,
     };
   }
+
   async sendOtpCode(otpInput: OtpDto): Promise<OtpResponse> {
     console.log(otpInput);
     return {
-      message: 'success',
+      message: "success",
       success: true,
-      id: '1',
-      provider: 'google',
-      phone_number: '+919494949494',
+      id: "1",
+      provider: "google",
+      phone_number: "+919494949494",
       is_contact_exist: true,
     };
   }
 
-  // async getUsers({ text, first, page }: GetUsersArgs): Promise<UserPaginator> {
-  //   const startIndex = (page - 1) * first;
-  //   const endIndex = page * first;
-  //   let data: User[] = this.users;
-  //   if (text?.replace(/%/g, '')) {
-  //     data = fuse.search(text)?.map(({ item }) => item);
-  //   }
-  //   const results = data.slice(startIndex, endIndex);
-  //   return {
-  //     data: results,
-  //     paginatorInfo: paginate(data.length, page, first, results.length),
-  //   };
-  // }
-  // public getUser(getUserArgs: GetUserArgs): User {
-  //   return this.users.find((user) => user.id === getUserArgs.id);
-  // }
-  me(): User {
-    return this.users[0];
+  // Cheack email alrady exist?
+  async findUserByEmail(email: string) {
+    const user = await this.usersRepository.findOne({
+      where: { email: email },
+    });
+    return user;
   }
-
-  // updateUser(id: number, updateUserInput: UpdateUserInput) {
-  //   return `This action updates a #${id} user`;
-  // }
 }

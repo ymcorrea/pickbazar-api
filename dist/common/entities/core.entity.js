@@ -11,18 +11,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CoreEntity = void 0;
 const openapi = require("@nestjs/swagger");
-const class_transformer_1 = require("class-transformer");
+const typeorm_1 = require("typeorm");
 class CoreEntity {
     static _OPENAPI_METADATA_FACTORY() {
         return { id: { required: true, type: () => Number }, created_at: { required: true, type: () => Date }, updated_at: { required: true, type: () => Date } };
     }
 }
 __decorate([
-    (0, class_transformer_1.Type)(() => Date),
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], CoreEntity.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+    }),
     __metadata("design:type", Date)
 ], CoreEntity.prototype, "created_at", void 0);
 __decorate([
-    (0, class_transformer_1.Type)(() => Date),
+    (0, typeorm_1.UpdateDateColumn)({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+        onUpdate: "CURRENT_TIMESTAMP(6)",
+    }),
     __metadata("design:type", Date)
 ], CoreEntity.prototype, "updated_at", void 0);
 exports.CoreEntity = CoreEntity;

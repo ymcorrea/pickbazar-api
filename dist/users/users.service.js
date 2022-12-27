@@ -10,15 +10,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
+const users_json_1 = __importDefault(require("../db/pickbazar/users.json"));
 const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
 const fuse_js_1 = __importDefault(require("fuse.js"));
-const user_entity_1 = require("./entities/user.entity");
-const users_json_1 = __importDefault(require("../db/pickbazar/users.json"));
 const paginate_1 = require("../common/pagination/paginate");
+const user_entity_1 = require("./entities/user.entity");
 const users = (0, class_transformer_1.plainToClass)(user_entity_1.User, users_json_1.default);
 const options = {
-    keys: ['name', 'type.slug', 'categories.slug', 'status'],
+    keys: ["name", "type.slug", "categories.slug", "status"],
     threshold: 0.3,
 };
 const fuse = new fuse_js_1.default(users, options);
@@ -38,15 +38,15 @@ let UsersService = class UsersService {
         const startIndex = (page - 1) * limit;
         const endIndex = page * limit;
         let data = this.users;
-        if (text === null || text === void 0 ? void 0 : text.replace(/%/g, '')) {
+        if (text === null || text === void 0 ? void 0 : text.replace(/%/g, "")) {
             data = (_a = fuse.search(text)) === null || _a === void 0 ? void 0 : _a.map(({ item }) => item);
         }
         if (search) {
-            const parseSearchParams = search.split(';');
+            const parseSearchParams = search.split(";");
             const searchText = [];
             for (const searchParam of parseSearchParams) {
-                const [key, value] = searchParam.split(':');
-                if (key !== 'slug') {
+                const [key, value] = searchParam.split(":");
+                if (key !== "slug") {
                     searchText.push({
                         [key]: value,
                     });
@@ -72,16 +72,6 @@ let UsersService = class UsersService {
     }
     makeAdmin(user_id) {
         return this.users.find((u) => u.id === Number(user_id));
-    }
-    banUser(id) {
-        const user = this.users.find((u) => u.id === Number(id));
-        user.is_active = !user.is_active;
-        return user;
-    }
-    activeUser(id) {
-        const user = this.users.find((u) => u.id === Number(id));
-        user.is_active = !user.is_active;
-        return user;
     }
 };
 UsersService = __decorate([

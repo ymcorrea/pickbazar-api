@@ -6,12 +6,12 @@ export declare class TagsController {
     private readonly tagsService;
     constructor(tagsService: TagsService);
     create(createTagDto: CreateTagDto): {
-        type: import("../types/entities/type.entity").Type;
         name: string;
-        image: import("../common/entities/attachment.entity").Attachment;
+        type: import("../types/entities/type.entity").Type;
         language: string;
         details: string;
         icon: string;
+        image: import("../common/entities/attachment.entity").Attachment;
         id: number;
     };
     findAll(query: GetTagsDto): Promise<TagPaginator>;

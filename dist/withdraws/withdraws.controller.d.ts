@@ -7,8 +7,8 @@ export declare class WithdrawsController {
     constructor(withdrawsService: WithdrawsService);
     createWithdraw(createWithdrawDto: CreateWithdrawDto): {
         shop_id: number;
-        amount: number;
         details: string;
+        amount: number;
         note: string;
         payment_method: string;
         id: number;

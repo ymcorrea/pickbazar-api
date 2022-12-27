@@ -54,21 +54,15 @@ let AuthController = class AuthController {
     verifyForgetPassword(verifyForgetPasswordDto) {
         return this.authService.verifyForgetPasswordToken(verifyForgetPasswordDto);
     }
-    me() {
-        return this.authService.me();
-    }
-    addWalletPoints(addPointsDto) {
-        return this.authService.me();
-    }
     contactUs(addPointsDto) {
         return {
             success: true,
-            message: 'Thank you for contacting us. We will get back to you soon.',
+            message: "Thank you for contacting us. We will get back to you soon.",
         };
     }
 };
 __decorate([
-    (0, common_1.Post)('register'),
+    (0, common_1.Post)("register"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").AuthResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -76,7 +70,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "createAccount", null);
 __decorate([
-    (0, common_1.Post)('token'),
+    (0, common_1.Post)("token"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").AuthResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -84,7 +78,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "login", null);
 __decorate([
-    (0, common_1.Post)('social-login-token'),
+    (0, common_1.Post)("social-login-token"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").AuthResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -92,7 +86,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "socialLogin", null);
 __decorate([
-    (0, common_1.Post)('otp-login'),
+    (0, common_1.Post)("otp-login"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").AuthResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -100,7 +94,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "otpLogin", null);
 __decorate([
-    (0, common_1.Post)('send-otp-code'),
+    (0, common_1.Post)("send-otp-code"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").OtpResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -108,7 +102,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "sendOtpCode", null);
 __decorate([
-    (0, common_1.Post)('verify-otp-code'),
+    (0, common_1.Post)("verify-otp-code"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").CoreResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -116,7 +110,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "verifyOtpCode", null);
 __decorate([
-    (0, common_1.Post)('forget-password'),
+    (0, common_1.Post)("forget-password"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").CoreResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -124,7 +118,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "forgetPassword", null);
 __decorate([
-    (0, common_1.Post)('reset-password'),
+    (0, common_1.Post)("reset-password"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").CoreResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -132,7 +126,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "resetPassword", null);
 __decorate([
-    (0, common_1.Post)('change-password'),
+    (0, common_1.Post)("change-password"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").CoreResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -140,14 +134,14 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "changePassword", null);
 __decorate([
-    (0, common_1.Post)('logout'),
+    (0, common_1.Post)("logout"),
     openapi.ApiResponse({ status: 201, type: Boolean }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "logout", null);
 __decorate([
-    (0, common_1.Post)('verify-forget-password-token'),
+    (0, common_1.Post)("verify-forget-password-token"),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").CoreResponse }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -155,22 +149,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "verifyForgetPassword", null);
 __decorate([
-    (0, common_1.Get)('me'),
-    openapi.ApiResponse({ status: 200, type: require("../users/entities/user.entity").User }),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AuthController.prototype, "me", null);
-__decorate([
-    (0, common_1.Post)('add-points'),
-    openapi.ApiResponse({ status: 201, type: require("../users/entities/user.entity").User }),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], AuthController.prototype, "addWalletPoints", null);
-__decorate([
-    (0, common_1.Post)('contact-us'),
+    (0, common_1.Post)("contact-us"),
     openapi.ApiResponse({ status: 201 }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

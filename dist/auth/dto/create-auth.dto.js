@@ -12,7 +12,7 @@ var Permission;
     Permission["STAFF"] = "Staff";
     Permission["CUSTOMER"] = "Customer";
 })(Permission || (Permission = {}));
-class RegisterDto extends (0, swagger_1.PickType)(user_entity_1.User, ['name', 'email', 'password']) {
+class RegisterDto extends (0, swagger_1.PickType)(user_entity_1.User, ["name", "email", "password"]) {
     constructor() {
         super(...arguments);
         this.permission = Permission.CUSTOMER;
@@ -22,7 +22,7 @@ class RegisterDto extends (0, swagger_1.PickType)(user_entity_1.User, ['name', '
     }
 }
 exports.RegisterDto = RegisterDto;
-class LoginDto extends (0, swagger_1.PartialType)((0, swagger_1.PickType)(user_entity_1.User, ['email', 'password'])) {
+class LoginDto extends (0, swagger_1.PartialType)((0, swagger_1.PickType)(user_entity_1.User, ["email", "password"])) {
     static _OPENAPI_METADATA_FACTORY() {
         return {};
     }

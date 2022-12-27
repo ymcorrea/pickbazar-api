@@ -1,18 +1,17 @@
-import { Injectable } from '@nestjs/common';
-import { plainToClass } from 'class-transformer';
-import { CreateUserDto } from './dto/create-user.dto';
-import { GetUsersDto, UserPaginator } from './dto/get-users.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
-import Fuse from 'fuse.js';
-
-import { User } from './entities/user.entity';
-import usersJson from '@db/users.json';
-import { paginate } from 'src/common/pagination/paginate';
+import usersJson from "@db/users.json";
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import Fuse from "fuse.js";
+import { paginate } from "src/common/pagination/paginate";
+import { CreateUserDto } from "./dto/create-user.dto";
+import { GetUsersDto, UserPaginator } from "./dto/get-users.dto";
+import { UpdateUserDto } from "./dto/update-user.dto";
+import { User } from "./entities/user.entity";
 
 const users = plainToClass(User, usersJson);
 
 const options = {
-  keys: ['name', 'type.slug', 'categories.slug', 'status'],
+  keys: ["name", "type.slug", "categories.slug", "status"],
   threshold: 0.3,
 };
 const fuse = new Fuse(users, options);
@@ -36,17 +35,17 @@ export class UsersService {
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
     let data: User[] = this.users;
-    if (text?.replace(/%/g, '')) {
+    if (text?.replace(/%/g, "")) {
       data = fuse.search(text)?.map(({ item }) => item);
     }
 
     if (search) {
-      const parseSearchParams = search.split(';');
+      const parseSearchParams = search.split(";");
       const searchText: any = [];
       for (const searchParam of parseSearchParams) {
-        const [key, value] = searchParam.split(':');
+        const [key, value] = searchParam.split(":");
         // TODO: Temp Solution
-        if (key !== 'slug') {
+        if (key !== "slug") {
           searchText.push({
             [key]: value,
           });
@@ -85,19 +84,19 @@ export class UsersService {
     return this.users.find((u) => u.id === Number(user_id));
   }
 
-  banUser(id: number) {
-    const user = this.users.find((u) => u.id === Number(id));
+  // banUser(id: number) {
+  //   const user = this.users.find((u) => u.id === Number(id));
 
-    user.is_active = !user.is_active;
+  //   user.is_active = !user.is_active;
 
-    return user;
-  }
+  //   return user;
+  // }
 
-  activeUser(id: number) {
-    const user = this.users.find((u) => u.id === Number(id));
+  // activeUser(id: number) {
+  //   const user = this.users.find((u) => u.id === Number(id));
 
-    user.is_active = !user.is_active;
+  //   user.is_active = !user.is_active;
 
-    return user;
-  }
+  //   return user;
+  // }
 }
