@@ -1,11 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { CreateFeedBackDto } from './dto/create-feedback.dto';
-import { UpdateFeedBackDto } from './dto/update-feedback.dto';
+import { Injectable } from "@nestjs/common";
+import { CreateFeedBackDto, UpdateFeedBackDto } from "./dto/feedback.dto";
 
 @Injectable()
 export class FeedbackService {
   findAllFeedBacks() {
-    return 'this route returns all feedbacks';
+    return "this route returns all feedbacks";
   }
 
   findFeedBack(id: number) {
@@ -13,7 +12,7 @@ export class FeedbackService {
   }
 
   create(createFeedBackDto: CreateFeedBackDto) {
-    return 'This action adds a new feedback';
+    return "This action adds a new feedback";
   }
 
   update(id: number, updateFeedbackDto: UpdateFeedBackDto) {

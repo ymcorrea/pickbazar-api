@@ -1,4 +1,4 @@
-import { SortOrder } from 'src/common/dto/generic-conditions.dto';
+import { SortOrder } from "src/common/dto/generic-conditions.dto";
 export declare class GetAttributesArgs {
     orderBy?: QueryAttributesOrderByOrderByClause[];
     shop_id?: number;

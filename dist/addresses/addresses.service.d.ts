@@ -1,5 +1,4 @@
-import { CreateAddressDto } from './dto/create-address.dto';
-import { UpdateAddressDto } from './dto/update-address.dto';
+import { CreateAddressDto, UpdateAddressDto } from "./dto/address.dto";
 export declare class AddressesService {
     create(createAddressDto: CreateAddressDto): string;
     findAll(): string;

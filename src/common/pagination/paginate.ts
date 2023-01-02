@@ -1,5 +1,5 @@
-import { APP_URL } from '../constants';
-import { PaginatorInfo } from '../dto/paginator-info.dto';
+import { APP_URL } from "../constants";
+import { PaginatorInfo } from "../dto/paginator-info.dto";
 
 export function paginate(
   totalItems: number,
@@ -7,7 +7,7 @@ export function paginate(
   pageSize = 10,
   count = 0,
   // maxPages = 10,
-  url = '',
+  url = "",
 ): PaginatorInfo {
   // calculate total pages
   const totalPages = Math.ceil(totalItems / pageSize);

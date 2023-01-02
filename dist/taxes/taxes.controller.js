@@ -15,10 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaxesController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const taxes_service_1 = require("./taxes.service");
-const create_tax_dto_1 = require("./dto/create-tax.dto");
-const update_tax_dto_1 = require("./dto/update-tax.dto");
 const get_taxes_dto_1 = require("./dto/get-taxes.dto");
+const tax_dto_1 = require("./dto/tax.dto");
+const taxes_service_1 = require("./taxes.service");
 let TaxesController = class TaxesController {
     constructor(taxesService) {
         this.taxesService = taxesService;
@@ -44,7 +43,7 @@ __decorate([
     openapi.ApiResponse({ status: 201, type: require("./entities/tax.entity").Tax }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_tax_dto_1.CreateTaxDto]),
+    __metadata("design:paramtypes", [tax_dto_1.CreateTaxDto]),
     __metadata("design:returntype", void 0)
 ], TaxesController.prototype, "create", null);
 __decorate([
@@ -56,32 +55,32 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], TaxesController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
+    (0, common_1.Get)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/tax.entity").Tax }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], TaxesController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/tax.entity").Tax }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_tax_dto_1.UpdateTaxDto]),
+    __metadata("design:paramtypes", [String, tax_dto_1.UpdateTaxDto]),
     __metadata("design:returntype", void 0)
 ], TaxesController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], TaxesController.prototype, "remove", null);
 TaxesController = __decorate([
-    (0, common_1.Controller)('taxes'),
+    (0, common_1.Controller)("taxes"),
     __metadata("design:paramtypes", [taxes_service_1.TaxesService])
 ], TaxesController);
 exports.TaxesController = TaxesController;

@@ -54,32 +54,32 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AttributesController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':param'),
+    (0, common_1.Get)(":param"),
     openapi.ApiResponse({ status: 200, type: require("./entities/attribute.entity").Attribute }),
-    __param(0, (0, common_1.Param)('param')),
+    __param(0, (0, common_1.Param)("param")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AttributesController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/attribute.entity").Attribute }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_attribute_dto_1.UpdateAttributeDto]),
     __metadata("design:returntype", void 0)
 ], AttributesController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AttributesController.prototype, "remove", null);
 AttributesController = __decorate([
-    (0, common_1.Controller)('attributes'),
+    (0, common_1.Controller)("attributes"),
     __metadata("design:paramtypes", [attributes_service_1.AttributesService])
 ], AttributesController);
 exports.AttributesController = AttributesController;

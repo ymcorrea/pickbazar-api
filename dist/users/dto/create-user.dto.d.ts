@@ -1,6 +1,6 @@
-import { CreateAddressDto } from 'src/addresses/dto/create-address.dto';
-import { User } from '../entities/user.entity';
-import { CreateProfileDto } from './create-profile.dto';
+import { CreateAddressDto } from "src/addresses/dto/address.dto";
+import { User } from "../entities/user.entity";
+import { CreateProfileDto } from "./create-profile.dto";
 declare enum Permission {
     SUPER_ADMIN = "Super admin",
     STORE_OWNER = "Store owner",

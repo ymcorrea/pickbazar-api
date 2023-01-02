@@ -1,8 +1,8 @@
-import { UpdateAuthorDto } from './dto/update-author.dto';
-import { Author } from './entities/author.entity';
-import { GetAuthorDto } from './dto/get-author.dto';
-import { GetTopAuthorsDto } from './dto/get-top-authors.dto';
-import { CreateAuthorDto } from './dto/create-author.dto';
+import { CreateAuthorDto } from "./dto/create-author.dto";
+import { GetAuthorDto } from "./dto/get-author.dto";
+import { GetTopAuthorsDto } from "./dto/get-top-authors.dto";
+import { UpdateAuthorDto } from "./dto/update-author.dto";
+import { Author } from "./entities/author.entity";
 export declare class AuthorsService {
     private authors;
     create(createAuthorDto: CreateAuthorDto): Author;

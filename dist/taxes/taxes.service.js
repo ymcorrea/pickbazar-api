@@ -10,10 +10,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaxesService = void 0;
+const taxes_json_1 = __importDefault(require("../db/pickbazar/taxes.json"));
 const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
 const tax_entity_1 = require("./entities/tax.entity");
-const taxes_json_1 = __importDefault(require("../db/pickbazar/taxes.json"));
 const taxes = (0, class_transformer_1.plainToClass)(tax_entity_1.Tax, taxes_json_1.default);
 let TaxesService = class TaxesService {
     constructor() {

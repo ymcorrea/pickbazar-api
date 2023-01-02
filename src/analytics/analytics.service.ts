@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import analyticsJson from '@db/analytics.json';
-import { plainToClass } from 'class-transformer';
-import { Analytics } from './entities/analytics.entity';
+import analyticsJson from "@db/analytics.json";
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import { Analytics } from "./entities/analytics.entity";
 
 const analytics = plainToClass(Analytics, analyticsJson);
 

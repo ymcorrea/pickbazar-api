@@ -1,16 +1,16 @@
-import { Injectable } from '@nestjs/common';
-import { plainToClass } from 'class-transformer';
-import { CreateCategoryDto } from './dto/create-category.dto';
-import { GetCategoriesDto } from './dto/get-categories.dto';
-import { UpdateCategoryDto } from './dto/update-category.dto';
-import { Category } from './entities/category.entity';
-import Fuse from 'fuse.js';
-import categoriesJson from '@db/categories.json';
-import { paginate } from 'src/common/pagination/paginate';
+import categoriesJson from "@db/categories.json";
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import Fuse from "fuse.js";
+import { paginate } from "src/common/pagination/paginate";
+import { CreateCategoryDto } from "./dto/create-category.dto";
+import { GetCategoriesDto } from "./dto/get-categories.dto";
+import { UpdateCategoryDto } from "./dto/update-category.dto";
+import { Category } from "./entities/category.entity";
 
 const categories = plainToClass(Category, categoriesJson);
 const options = {
-  keys: ['name', 'type.slug'],
+  keys: ["name", "type.slug"],
   threshold: 0.3,
 };
 const fuse = new Fuse(categories, options);
@@ -29,14 +29,14 @@ export class CategoriesService {
     const endIndex = page * limit;
     let data: Category[] = this.categories;
     if (search) {
-      const parseSearchParams = search.split(';');
+      const parseSearchParams = search.split(";");
       for (const searchParam of parseSearchParams) {
-        const [key, value] = searchParam.split(':');
+        const [key, value] = searchParam.split(":");
         // data = data.filter((item) => item[key] === value);
         data = fuse.search(value)?.map(({ item }) => item);
       }
     }
-    if (parent === 'null') {
+    if (parent === "null") {
       data = data.filter((item) => item.parent === null);
     }
     // if (text?.replace(/%/g, '')) {

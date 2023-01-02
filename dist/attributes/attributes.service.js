@@ -10,10 +10,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AttributesService = void 0;
-const common_1 = require("@nestjs/common");
 const attributes_json_1 = __importDefault(require("../db/pickbazar/attributes.json"));
-const attribute_entity_1 = require("./entities/attribute.entity");
+const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
+const attribute_entity_1 = require("./entities/attribute.entity");
 const attributes = (0, class_transformer_1.plainToClass)(attribute_entity_1.Attribute, attributes_json_1.default);
 let AttributesService = class AttributesService {
     constructor() {

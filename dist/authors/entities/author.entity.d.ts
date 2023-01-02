@@ -1,6 +1,6 @@
-import { CoreEntity } from '../../common/entities/core.entity';
-import { Attachment } from '../../common/entities/attachment.entity';
-import { ShopSocials } from '../../settings/entities/setting.entity';
+import { Attachment } from "../../common/entities/attachment.entity";
+import { CoreEntity } from "../../common/entities/core.entity";
+import { ShopSocials } from "../../settings/entities/setting.entity";
 export declare class Author extends CoreEntity {
     bio?: string;
     born?: string;

@@ -1,21 +1,23 @@
-import { Injectable } from '@nestjs/common';
-import { Manufacturer } from './entities/manufacturer.entity';
-import manufacturersJson from '@db/manufacturers.json';
-import { plainToClass } from 'class-transformer';
-import Fuse from 'fuse.js';
-import { GetTopManufacturersDto } from './dto/get-top-manufacturers.dto';
+import manufacturersJson from "@db/manufacturers.json";
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import Fuse from "fuse.js";
+import { paginate } from "../common/pagination/paginate";
 import {
   GetManufacturersDto,
   ManufacturerPaginator,
-} from './dto/get-manufactures.dto';
-import { paginate } from '../common/pagination/paginate';
-import { CreateManufacturerDto } from './dto/create-manufacturer.dto';
-import { UpdateManufacturerDto } from './dto/update-manufacturer.dto';
+} from "./dto/get-manufactures.dto";
+import {
+  CreateManufacturerDto,
+  GetTopManufacturersDto,
+  UpdateManufacturerDto,
+} from "./dto/manufacturer.dto";
+import { Manufacturer } from "./entities/manufacturer.entity";
 
 const manufacturers = plainToClass(Manufacturer, manufacturersJson);
 
 const options = {
-  keys: ['name'],
+  keys: ["name"],
   threshold: 0.3,
 };
 
@@ -40,10 +42,10 @@ export class ManufacturersService {
     const endIndex = page * limit;
     let data: Manufacturer[] = this.manufacturers;
     if (search) {
-      console.log('search', search);
-      const parseSearchParams = search.split(';');
+      console.log("search", search);
+      const parseSearchParams = search.split(";");
       for (const searchParam of parseSearchParams) {
-        const [key, value] = searchParam.split(':');
+        const [key, value] = searchParam.split(":");
         data = fuse.search(value)?.map(({ item }) => item);
       }
     }

@@ -1,6 +1,5 @@
-import { Attachment } from "src/common/entities/attachment.entity";
 import { CoreEntity } from "src/common/entities/core.entity";
-import { Order } from "src/orders/entities/order.entity";
+import { Column, Entity } from "typeorm";
 
 export enum CouponType {
   FIXED_COUPON = "fixed",
@@ -9,16 +8,36 @@ export enum CouponType {
   DEFAULT_COUPON = "fixed",
 }
 
+@Entity()
 export class Coupon extends CoreEntity {
+  @Column()
   code: string;
+
+  @Column()
   description?: string;
-  orders?: Order[];
+
+  // orders?: Order[];
+
+  @Column()
   type: CouponType;
-  image: Attachment;
+
+  // image: Attachment;
+
+  @Column()
   is_valid: boolean;
+
+  @Column()
   amount: number;
+
+  @Column()
   active_from: string;
+
+  @Column()
   expire_at: string;
+
+  @Column()
   language: string;
-  translated_languages: string[];
+
+  // @Column()
+  // translated_languages: string[];
 }

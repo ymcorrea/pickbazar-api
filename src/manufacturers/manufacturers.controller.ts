@@ -7,18 +7,20 @@ import {
   Post,
   Put,
   Query,
-} from '@nestjs/common';
-import { ManufacturersService } from './manufacturers.service';
-import { GetTopManufacturersDto } from './dto/get-top-manufacturers.dto';
-import { Manufacturer } from './entities/manufacturer.entity';
+} from "@nestjs/common";
 import {
   GetManufacturersDto,
   ManufacturerPaginator,
-} from './dto/get-manufactures.dto';
-import { CreateManufacturerDto } from './dto/create-manufacturer.dto';
-import { UpdateManufacturerDto } from './dto/update-manufacturer.dto';
+} from "./dto/get-manufactures.dto";
+import {
+  CreateManufacturerDto,
+  GetTopManufacturersDto,
+  UpdateManufacturerDto,
+} from "./dto/manufacturer.dto";
+import { Manufacturer } from "./entities/manufacturer.entity";
+import { ManufacturersService } from "./manufacturers.service";
 
-@Controller('manufacturers')
+@Controller("manufacturers")
 export class ManufacturersController {
   constructor(private readonly manufacturersService: ManufacturersService) {}
 
@@ -34,28 +36,28 @@ export class ManufacturersController {
     return this.manufacturersService.getManufactures(query);
   }
 
-  @Get(':slug')
+  @Get(":slug")
   async getManufactureBySlug(
-    @Param('slug') slug: string,
+    @Param("slug") slug: string,
   ): Promise<Manufacturer> {
     return this.manufacturersService.getManufacturesBySlug(slug);
   }
 
-  @Put(':id')
+  @Put(":id")
   update(
-    @Param('id') id: string,
+    @Param("id") id: string,
     @Body() updateManufacturerDto: UpdateManufacturerDto,
   ) {
     return this.manufacturersService.update(+id, updateManufacturerDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.manufacturersService.remove(+id);
   }
 }
 
-@Controller('top-manufacturers')
+@Controller("top-manufacturers")
 export class TopManufacturersController {
   constructor(private readonly manufacturersService: ManufacturersService) {}
 

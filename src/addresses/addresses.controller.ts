@@ -1,17 +1,16 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Put,
-  Param,
+  Controller,
   Delete,
-} from '@nestjs/common';
-import { AddressesService } from './addresses.service';
-import { CreateAddressDto } from './dto/create-address.dto';
-import { UpdateAddressDto } from './dto/update-address.dto';
+  Get,
+  Param,
+  Post,
+  Put,
+} from "@nestjs/common";
+import { AddressesService } from "./addresses.service";
+import { CreateAddressDto, UpdateAddressDto } from "./dto/address.dto";
 
-@Controller('address')
+@Controller("address")
 export class AddressesController {
   constructor(private readonly addressesService: AddressesService) {}
 
@@ -25,21 +24,21 @@ export class AddressesController {
     return this.addressesService.findAll();
   }
 
-  @Get(':id')
-  address(@Param('id') id: string) {
+  @Get(":id")
+  address(@Param("id") id: string) {
     return this.addressesService.findOne(+id);
   }
 
-  @Put(':id')
+  @Put(":id")
   updateAddress(
-    @Param('id') id: string,
+    @Param("id") id: string,
     @Body() updateAddressDto: UpdateAddressDto,
   ) {
     return this.addressesService.update(+id, updateAddressDto);
   }
 
-  @Delete(':id')
-  deleteAddress(@Param('id') id: string) {
+  @Delete(":id")
+  deleteAddress(@Param("id") id: string) {
     return this.addressesService.remove(+id);
   }
 }

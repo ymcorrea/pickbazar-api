@@ -1,17 +1,17 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Put,
-  Param,
+  Controller,
   Delete,
-} from '@nestjs/common';
-import { AttributesService } from './attributes.service';
-import { CreateAttributeDto } from './dto/create-attribute.dto';
-import { UpdateAttributeDto } from './dto/update-attribute.dto';
+  Get,
+  Param,
+  Post,
+  Put,
+} from "@nestjs/common";
+import { AttributesService } from "./attributes.service";
+import { CreateAttributeDto } from "./dto/create-attribute.dto";
+import { UpdateAttributeDto } from "./dto/update-attribute.dto";
 
-@Controller('attributes')
+@Controller("attributes")
 export class AttributesController {
   constructor(private readonly attributesService: AttributesService) {}
 
@@ -25,21 +25,21 @@ export class AttributesController {
     return this.attributesService.findAll();
   }
 
-  @Get(':param')
-  findOne(@Param('param') param: string) {
+  @Get(":param")
+  findOne(@Param("param") param: string) {
     return this.attributesService.findOne(param);
   }
 
-  @Put(':id')
+  @Put(":id")
   update(
-    @Param('id') id: string,
+    @Param("id") id: string,
     @Body() updateAttributeDto: UpdateAttributeDto,
   ) {
     return this.attributesService.update(+id, updateAttributeDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.attributesService.remove(+id);
   }
 }

@@ -10,13 +10,13 @@ exports.FeedbackService = void 0;
 const common_1 = require("@nestjs/common");
 let FeedbackService = class FeedbackService {
     findAllFeedBacks() {
-        return 'this route returns all feedbacks';
+        return "this route returns all feedbacks";
     }
     findFeedBack(id) {
         return `This action returns a #${id} feedback`;
     }
     create(createFeedBackDto) {
-        return 'This action adds a new feedback';
+        return "This action adds a new feedback";
     }
     update(id, updateFeedbackDto) {
         return `This action updates a #${id} feedback`;

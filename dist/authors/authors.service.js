@@ -10,15 +10,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorsService = void 0;
+const authors_json_1 = __importDefault(require("../db/pickbazar/authors.json"));
 const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
-const authors_json_1 = __importDefault(require("../db/pickbazar/authors.json"));
-const author_entity_1 = require("./entities/author.entity");
 const fuse_js_1 = __importDefault(require("fuse.js"));
 const paginate_1 = require("../common/pagination/paginate");
+const author_entity_1 = require("./entities/author.entity");
 const authors = (0, class_transformer_1.plainToClass)(author_entity_1.Author, authors_json_1.default);
 const options = {
-    keys: ['name', 'slug'],
+    keys: ["name", "slug"],
     threshold: 0.3,
 };
 const fuse = new fuse_js_1.default(authors, options);
@@ -39,9 +39,9 @@ let AuthorsService = class AuthorsService {
         const endIndex = page * limit;
         let data = this.authors;
         if (search) {
-            const parseSearchParams = search.split(';');
+            const parseSearchParams = search.split(";");
             for (const searchParam of parseSearchParams) {
-                const [key, value] = searchParam.split(':');
+                const [key, value] = searchParam.split(":");
                 data = (_a = fuse.search(value)) === null || _a === void 0 ? void 0 : _a.map(({ item }) => item);
             }
         }

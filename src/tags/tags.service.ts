@@ -1,17 +1,16 @@
-import { Injectable } from '@nestjs/common';
-import { paginate } from 'src/common/pagination/paginate';
-import { CreateTagDto } from './dto/create-tag.dto';
-import { GetTagsDto } from './dto/get-tags.dto';
-import { UpdateTagDto } from './dto/update-tag.dto';
-import { Tag } from './entities/tag.entity';
-import tagsJson from '@db/tags.json';
-import { plainToClass } from 'class-transformer';
-import Fuse from 'fuse.js';
+import tagsJson from "@db/tags.json";
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import Fuse from "fuse.js";
+import { paginate } from "src/common/pagination/paginate";
+import { GetTagsDto } from "./dto/get-tags.dto";
+import { CreateTagDto, UpdateTagDto } from "./dto/tag.dto";
+import { Tag } from "./entities/tag.entity";
 
 const tags = plainToClass(Tag, tagsJson);
 
 const options = {
-  keys: ['name'],
+  keys: ["name"],
   threshold: 0.3,
 };
 const fuse = new Fuse(tags, options);
@@ -32,12 +31,12 @@ export class TagsService {
     let data: Tag[] = this.tags;
 
     if (search) {
-      const parseSearchParams = search.split(';');
+      const parseSearchParams = search.split(";");
       const searchText: any = [];
       for (const searchParam of parseSearchParams) {
-        const [key, value] = searchParam.split(':');
+        const [key, value] = searchParam.split(":");
         // TODO: Temp Solution
-        if (key !== 'slug') {
+        if (key !== "slug") {
           searchText.push({
             [key]: value,
           });

@@ -1,8 +1,8 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { NewslettersService } from './newsletters.service';
-import { CreateNewSubscriberDto } from './dto/create-new-subscriber.dto';
+import { Body, Controller, Post } from "@nestjs/common";
+import { CreateNewSubscriberDto } from "./dto/create-new-subscriber.dto";
+import { NewslettersService } from "./newsletters.service";
 
-@Controller('subscribe-to-newsletter')
+@Controller("subscribe-to-newsletter")
 export class NewslettersController {
   constructor(private newslettersService: NewslettersService) {}
 

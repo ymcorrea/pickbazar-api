@@ -1,7 +1,6 @@
-import { ShippingsService } from './shippings.service';
-import { CreateShippingDto } from './dto/create-shipping.dto';
-import { UpdateShippingDto } from './dto/update-shipping.dto';
-import { GetShippingsDto } from './dto/get-shippings.dto';
+import { GetShippingsDto } from "./dto/get-shippings.dto";
+import { CreateShippingDto, UpdateShippingDto } from "./dto/shipping.dto";
+import { ShippingsService } from "./shippings.service";
 export declare class ShippingsController {
     private readonly shippingsService;
     constructor(shippingsService: ShippingsService);

@@ -1,7 +1,6 @@
-import { CreateQuestionDto } from './dto/create-question.dto';
-import { GetQuestionDto } from './dto/get-questions.dto';
-import { UpdateQuestionDto } from './dto/update-question.dto';
-import { MyQuestionsService } from './my-questions.service';
+import { GetQuestionDto } from "./dto/get-questions.dto";
+import { CreateQuestionDto, UpdateQuestionDto } from "./dto/question.dto";
+import { MyQuestionsService } from "./my-questions.service";
 export declare class MyQuestionsController {
     private myQuestionService;
     constructor(myQuestionService: MyQuestionsService);

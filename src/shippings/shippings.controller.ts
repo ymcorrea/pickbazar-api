@@ -1,19 +1,18 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Put,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Post,
+  Put,
   Query,
-} from '@nestjs/common';
-import { ShippingsService } from './shippings.service';
-import { CreateShippingDto } from './dto/create-shipping.dto';
-import { UpdateShippingDto } from './dto/update-shipping.dto';
-import { GetShippingsDto } from './dto/get-shippings.dto';
+} from "@nestjs/common";
+import { GetShippingsDto } from "./dto/get-shippings.dto";
+import { CreateShippingDto, UpdateShippingDto } from "./dto/shipping.dto";
+import { ShippingsService } from "./shippings.service";
 
-@Controller('shippings')
+@Controller("shippings")
 export class ShippingsController {
   constructor(private readonly shippingsService: ShippingsService) {}
 
@@ -27,21 +26,21 @@ export class ShippingsController {
     return this.shippingsService.getShippings(query);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
+  @Get(":id")
+  findOne(@Param("id") id: string) {
     return this.shippingsService.findOne(+id);
   }
 
-  @Put(':id')
+  @Put(":id")
   update(
-    @Param('id') id: string,
+    @Param("id") id: string,
     @Body() updateShippingDto: UpdateShippingDto,
   ) {
     return this.shippingsService.update(+id, updateShippingDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.shippingsService.remove(+id);
   }
 }

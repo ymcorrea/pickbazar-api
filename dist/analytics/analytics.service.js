@@ -10,8 +10,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AnalyticsService = void 0;
-const common_1 = require("@nestjs/common");
 const analytics_json_1 = __importDefault(require("../db/pickbazar/analytics.json"));
+const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
 const analytics_entity_1 = require("./entities/analytics.entity");
 const analytics = (0, class_transformer_1.plainToClass)(analytics_entity_1.Analytics, analytics_json_1.default);

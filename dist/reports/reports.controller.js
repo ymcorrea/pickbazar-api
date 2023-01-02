@@ -29,7 +29,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ReportsController.prototype, "findAll", null);
 ReportsController = __decorate([
-    (0, common_1.Controller)('my-reports'),
+    (0, common_1.Controller)("my-reports"),
     __metadata("design:paramtypes", [reports_service_1.ReportsService])
 ], ReportsController);
 exports.ReportsController = ReportsController;

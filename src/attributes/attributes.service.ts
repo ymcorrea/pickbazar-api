@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { CreateAttributeDto } from './dto/create-attribute.dto';
-import { UpdateAttributeDto } from './dto/update-attribute.dto';
-import attributesJson from '@db/attributes.json';
-import { Attribute } from './entities/attribute.entity';
-import { plainToClass } from 'class-transformer';
+import attributesJson from "@db/attributes.json";
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import { CreateAttributeDto } from "./dto/create-attribute.dto";
+import { UpdateAttributeDto } from "./dto/update-attribute.dto";
+import { Attribute } from "./entities/attribute.entity";
 
 const attributes = plainToClass(Attribute, attributesJson);
 

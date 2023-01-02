@@ -1,4 +1,4 @@
-import { SortOrder } from 'src/common/dto/generic-conditions.dto';
+import { SortOrder } from "src/common/dto/generic-conditions.dto";
 
 export class GetAttributesArgs {
   orderBy?: QueryAttributesOrderByOrderByClause[];
@@ -11,7 +11,7 @@ export class QueryAttributesOrderByOrderByClause {
   order: SortOrder;
 }
 export enum QueryAttributesOrderByColumn {
-  CREATED_AT = 'CREATED_AT',
-  NAME = 'NAME',
-  UPDATED_AT = 'UPDATED_AT',
+  CREATED_AT = "CREATED_AT",
+  NAME = "NAME",
+  UPDATED_AT = "UPDATED_AT",
 }

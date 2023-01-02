@@ -1,24 +1,24 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Param,
+  Controller,
   Delete,
-  Query,
-  Put,
+  Get,
+  Param,
   ParseIntPipe,
-} from '@nestjs/common';
-import { OrdersService } from './orders.service';
-import { CreateOrderDto } from './dto/create-order.dto';
-import { UpdateOrderDto } from './dto/update-order.dto';
-import { GetOrdersDto, OrderPaginator } from './dto/get-orders.dto';
-import { CreateOrderStatusDto } from './dto/create-order-status.dto';
-import { GetOrderStatusesDto } from './dto/get-order-statuses.dto';
-import { CheckoutVerificationDto } from './dto/verify-checkout.dto';
-import { GetOrderFilesDto, OrderFilesPaginator } from './dto/get-downloads.dto';
+  Post,
+  Put,
+  Query,
+} from "@nestjs/common";
+import { CreateOrderStatusDto } from "./dto/create-order-status.dto";
+import { CreateOrderDto } from "./dto/create-order.dto";
+import { GetOrderFilesDto, OrderFilesPaginator } from "./dto/get-downloads.dto";
+import { GetOrderStatusesDto } from "./dto/get-order-statuses.dto";
+import { GetOrdersDto, OrderPaginator } from "./dto/get-orders.dto";
+import { UpdateOrderDto } from "./dto/update-order.dto";
+import { CheckoutVerificationDto } from "./dto/verify-checkout.dto";
+import { OrdersService } from "./orders.service";
 
-@Controller('orders')
+@Controller("orders")
 export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
@@ -32,33 +32,33 @@ export class OrdersController {
     return this.ordersService.getOrders(query);
   }
 
-  @Get(':id')
-  getOrderById(@Param('id') id: string) {
+  @Get(":id")
+  getOrderById(@Param("id") id: string) {
     return this.ordersService.getOrderById(id);
   }
 
-  @Get('tracking-number/:tracking_id')
-  getOrderByTrackingNumber(@Param('tracking_id') tracking_id: string) {
+  @Get("tracking-number/:tracking_id")
+  getOrderByTrackingNumber(@Param("tracking_id") tracking_id: string) {
     return this.ordersService.getOrderByTrackingNumber(tracking_id);
   }
 
-  @Put(':id')
-  update(@Param('id') id: string, @Body() updateOrderDto: UpdateOrderDto) {
+  @Put(":id")
+  update(@Param("id") id: string, @Body() updateOrderDto: UpdateOrderDto) {
     return this.ordersService.update(+id, updateOrderDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.ordersService.remove(+id);
   }
 
-  @Post('checkout/verify')
+  @Post("checkout/verify")
   verifyCheckout(@Query() query: CheckoutVerificationDto) {
     return this.ordersService.verifyCheckout(query);
   }
 }
 
-@Controller('order-status')
+@Controller("order-status")
 export class OrderStatusController {
   constructor(private readonly ordersService: OrdersService) {}
 
@@ -72,23 +72,23 @@ export class OrderStatusController {
     return this.ordersService.getOrderStatuses(query);
   }
 
-  @Get(':param')
-  findOne(@Param('param') param: string, @Query('language') language: string) {
+  @Get(":param")
+  findOne(@Param("param") param: string, @Query("language") language: string) {
     return this.ordersService.getOrderStatus(param, language);
   }
 
-  @Put(':id')
-  update(@Param('id') id: string, @Body() updateOrderDto: UpdateOrderDto) {
+  @Put(":id")
+  update(@Param("id") id: string, @Body() updateOrderDto: UpdateOrderDto) {
     return this.ordersService.update(+id, updateOrderDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.ordersService.remove(+id);
   }
 }
 
-@Controller('downloads')
+@Controller("downloads")
 export class OrderFilesController {
   constructor(private ordersService: OrdersService) {}
 
@@ -99,30 +99,30 @@ export class OrderFilesController {
     return this.ordersService.getOrderFileItems(query);
   }
 
-  @Post('digital_file')
+  @Post("digital_file")
   async getDigitalFileDownloadUrl(
-    @Body('digital_file_id', ParseIntPipe) digitalFileId: number,
+    @Body("digital_file_id", ParseIntPipe) digitalFileId: number,
   ) {
     return this.ordersService.getDigitalFileDownloadUrl(digitalFileId);
   }
 }
 
-@Controller('export-order-url')
+@Controller("export-order-url")
 export class OrderExportController {
   constructor(private ordersService: OrdersService) {}
 
   @Get()
-  async orderExport(@Query('shop_id') shop_id: string) {
+  async orderExport(@Query("shop_id") shop_id: string) {
     return this.ordersService.exportOrder(shop_id);
   }
 }
 
-@Controller('download-invoice-url')
+@Controller("download-invoice-url")
 export class DownloadInvoiceController {
   constructor(private ordersService: OrdersService) {}
 
   @Post()
-  async downloadInvoiceUrl(@Body('shop_id') shop_id: string) {
+  async downloadInvoiceUrl(@Body("shop_id") shop_id: string) {
     return this.ordersService.downloadInvoiceUrl(shop_id);
   }
 }

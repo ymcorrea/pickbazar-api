@@ -1,17 +1,14 @@
-import { TagsService } from './tags.service';
-import { CreateTagDto } from './dto/create-tag.dto';
-import { UpdateTagDto } from './dto/update-tag.dto';
-import { GetTagsDto, TagPaginator } from './dto/get-tags.dto';
+import { GetTagsDto, TagPaginator } from "./dto/get-tags.dto";
+import { CreateTagDto, UpdateTagDto } from "./dto/tag.dto";
+import { TagsService } from "./tags.service";
 export declare class TagsController {
     private readonly tagsService;
     constructor(tagsService: TagsService);
     create(createTagDto: CreateTagDto): {
         name: string;
-        language: string;
-        type: import("../types/entities/type.entity").Type;
-        image: import("../common/entities/attachment.entity").Attachment;
         details: string;
         icon: string;
+        language: string;
         id: number;
     };
     findAll(query: GetTagsDto): Promise<TagPaginator>;

@@ -1,7 +1,6 @@
-import { TaxesService } from './taxes.service';
-import { CreateTaxDto } from './dto/create-tax.dto';
-import { UpdateTaxDto } from './dto/update-tax.dto';
-import { GetTaxesDto } from './dto/get-taxes.dto';
+import { GetTaxesDto } from "./dto/get-taxes.dto";
+import { CreateTaxDto, UpdateTaxDto } from "./dto/tax.dto";
+import { TaxesService } from "./taxes.service";
 export declare class TaxesController {
     private readonly taxesService;
     constructor(taxesService: TaxesService);

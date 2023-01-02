@@ -1,12 +1,12 @@
-import { Module } from '@nestjs/common';
-import { OrdersService } from './orders.service';
+import { Module } from "@nestjs/common";
 import {
   DownloadInvoiceController,
   OrderExportController,
   OrderFilesController,
   OrdersController,
   OrderStatusController,
-} from './orders.controller';
+} from "./orders.controller";
+import { OrdersService } from "./orders.service";
 
 @Module({
   controllers: [

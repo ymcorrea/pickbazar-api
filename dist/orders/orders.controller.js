@@ -15,14 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DownloadInvoiceController = exports.OrderExportController = exports.OrderFilesController = exports.OrderStatusController = exports.OrdersController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const orders_service_1 = require("./orders.service");
-const create_order_dto_1 = require("./dto/create-order.dto");
-const update_order_dto_1 = require("./dto/update-order.dto");
-const get_orders_dto_1 = require("./dto/get-orders.dto");
 const create_order_status_dto_1 = require("./dto/create-order-status.dto");
-const get_order_statuses_dto_1 = require("./dto/get-order-statuses.dto");
-const verify_checkout_dto_1 = require("./dto/verify-checkout.dto");
+const create_order_dto_1 = require("./dto/create-order.dto");
 const get_downloads_dto_1 = require("./dto/get-downloads.dto");
+const get_order_statuses_dto_1 = require("./dto/get-order-statuses.dto");
+const get_orders_dto_1 = require("./dto/get-orders.dto");
+const update_order_dto_1 = require("./dto/update-order.dto");
+const verify_checkout_dto_1 = require("./dto/verify-checkout.dto");
+const orders_service_1 = require("./orders.service");
 let OrdersController = class OrdersController {
     constructor(ordersService) {
         this.ordersService = ordersService;
@@ -66,40 +66,40 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], OrdersController.prototype, "getOrders", null);
 __decorate([
-    (0, common_1.Get)(':id'),
+    (0, common_1.Get)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/order.entity").Order }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], OrdersController.prototype, "getOrderById", null);
 __decorate([
-    (0, common_1.Get)('tracking-number/:tracking_id'),
+    (0, common_1.Get)("tracking-number/:tracking_id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/order.entity").Order }),
-    __param(0, (0, common_1.Param)('tracking_id')),
+    __param(0, (0, common_1.Param)("tracking_id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], OrdersController.prototype, "getOrderByTrackingNumber", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/order.entity").Order }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_order_dto_1.UpdateOrderDto]),
     __metadata("design:returntype", void 0)
 ], OrdersController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], OrdersController.prototype, "remove", null);
 __decorate([
-    (0, common_1.Post)('checkout/verify'),
+    (0, common_1.Post)("checkout/verify"),
     openapi.ApiResponse({ status: 201, type: require("./dto/verify-checkout.dto").VerifiedCheckoutData }),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
@@ -107,7 +107,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], OrdersController.prototype, "verifyCheckout", null);
 OrdersController = __decorate([
-    (0, common_1.Controller)('orders'),
+    (0, common_1.Controller)("orders"),
     __metadata("design:paramtypes", [orders_service_1.OrdersService])
 ], OrdersController);
 exports.OrdersController = OrdersController;
@@ -148,33 +148,33 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], OrderStatusController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':param'),
+    (0, common_1.Get)(":param"),
     openapi.ApiResponse({ status: 200, type: require("./entities/order-status.entity").OrderStatus }),
-    __param(0, (0, common_1.Param)('param')),
-    __param(1, (0, common_1.Query)('language')),
+    __param(0, (0, common_1.Param)("param")),
+    __param(1, (0, common_1.Query)("language")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", void 0)
 ], OrderStatusController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/order.entity").Order }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_order_dto_1.UpdateOrderDto]),
     __metadata("design:returntype", void 0)
 ], OrderStatusController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], OrderStatusController.prototype, "remove", null);
 OrderStatusController = __decorate([
-    (0, common_1.Controller)('order-status'),
+    (0, common_1.Controller)("order-status"),
     __metadata("design:paramtypes", [orders_service_1.OrdersService])
 ], OrderStatusController);
 exports.OrderStatusController = OrderStatusController;
@@ -198,15 +198,15 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], OrderFilesController.prototype, "getOrderFileItems", null);
 __decorate([
-    (0, common_1.Post)('digital_file'),
+    (0, common_1.Post)("digital_file"),
     openapi.ApiResponse({ status: 201, type: String }),
-    __param(0, (0, common_1.Body)('digital_file_id', common_1.ParseIntPipe)),
+    __param(0, (0, common_1.Body)("digital_file_id", common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], OrderFilesController.prototype, "getDigitalFileDownloadUrl", null);
 OrderFilesController = __decorate([
-    (0, common_1.Controller)('downloads'),
+    (0, common_1.Controller)("downloads"),
     __metadata("design:paramtypes", [orders_service_1.OrdersService])
 ], OrderFilesController);
 exports.OrderFilesController = OrderFilesController;
@@ -221,13 +221,13 @@ let OrderExportController = class OrderExportController {
 __decorate([
     (0, common_1.Get)(),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Query)('shop_id')),
+    __param(0, (0, common_1.Query)("shop_id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], OrderExportController.prototype, "orderExport", null);
 OrderExportController = __decorate([
-    (0, common_1.Controller)('export-order-url'),
+    (0, common_1.Controller)("export-order-url"),
     __metadata("design:paramtypes", [orders_service_1.OrdersService])
 ], OrderExportController);
 exports.OrderExportController = OrderExportController;
@@ -242,13 +242,13 @@ let DownloadInvoiceController = class DownloadInvoiceController {
 __decorate([
     (0, common_1.Post)(),
     openapi.ApiResponse({ status: 201, type: String }),
-    __param(0, (0, common_1.Body)('shop_id')),
+    __param(0, (0, common_1.Body)("shop_id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], DownloadInvoiceController.prototype, "downloadInvoiceUrl", null);
 DownloadInvoiceController = __decorate([
-    (0, common_1.Controller)('download-invoice-url'),
+    (0, common_1.Controller)("download-invoice-url"),
     __metadata("design:paramtypes", [orders_service_1.OrdersService])
 ], DownloadInvoiceController);
 exports.DownloadInvoiceController = DownloadInvoiceController;

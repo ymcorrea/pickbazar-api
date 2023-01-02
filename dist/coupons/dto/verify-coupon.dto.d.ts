@@ -1,4 +1,4 @@
-import { Coupon } from '../entities/coupon.entity';
+import { Coupon } from "../entities/coupon.entity";
 export declare class VerifyCouponInput {
     code: string;
 }

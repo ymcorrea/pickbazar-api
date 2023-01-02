@@ -29,7 +29,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AnalyticsController.prototype, "analytics", null);
 AnalyticsController = __decorate([
-    (0, common_1.Controller)('analytics'),
+    (0, common_1.Controller)("analytics"),
     __metadata("design:paramtypes", [analytics_service_1.AnalyticsService])
 ], AnalyticsController);
 exports.AnalyticsController = AnalyticsController;

@@ -1,22 +1,22 @@
-import { Controller, Post, Body } from '@nestjs/common';
-import { ImportsService } from './imports.service';
-import { ImportDto } from './dto/create-import.dto';
+import { Body, Controller, Post } from "@nestjs/common";
+import { ImportDto } from "./dto/create-import.dto";
+import { ImportsService } from "./imports.service";
 
 @Controller()
 export class ImportsController {
   constructor(private readonly importsService: ImportsService) {}
 
-  @Post('import-attributes')
+  @Post("import-attributes")
   importAttributes(@Body() importAttributesDto: ImportDto) {
     console.log(importAttributesDto);
     return true;
   }
-  @Post('import-products')
+  @Post("import-products")
   importProducts(@Body() importProductsDto: ImportDto) {
     console.log(importProductsDto);
     return true;
   }
-  @Post('import-variation-options')
+  @Post("import-variation-options")
   importVariationOptions(@Body() importVariationOptionsDto: ImportDto) {
     console.log(importVariationOptionsDto);
     return true;

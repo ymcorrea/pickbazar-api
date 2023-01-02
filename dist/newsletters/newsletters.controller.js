@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.NewslettersController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const newsletters_service_1 = require("./newsletters.service");
 const create_new_subscriber_dto_1 = require("./dto/create-new-subscriber.dto");
+const newsletters_service_1 = require("./newsletters.service");
 let NewslettersController = class NewslettersController {
     constructor(newslettersService) {
         this.newslettersService = newslettersService;
@@ -34,7 +34,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], NewslettersController.prototype, "subscribeToNewsletter", null);
 NewslettersController = __decorate([
-    (0, common_1.Controller)('subscribe-to-newsletter'),
+    (0, common_1.Controller)("subscribe-to-newsletter"),
     __metadata("design:paramtypes", [newsletters_service_1.NewslettersService])
 ], NewslettersController);
 exports.NewslettersController = NewslettersController;

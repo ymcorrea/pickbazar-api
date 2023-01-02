@@ -5,10 +5,10 @@ const openapi = require("@nestjs/swagger");
 const swagger_1 = require("@nestjs/swagger");
 const shipping_entity_1 = require("../entities/shipping.entity");
 class CreateShippingDto extends (0, swagger_1.PickType)(shipping_entity_1.Shipping, [
-    'name',
-    'amount',
-    'is_global',
-    'type',
+    "name",
+    "amount",
+    "is_global",
+    "type",
 ]) {
     static _OPENAPI_METADATA_FACTORY() {
         return {};

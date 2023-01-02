@@ -10,15 +10,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TagsService = void 0;
-const common_1 = require("@nestjs/common");
-const paginate_1 = require("../common/pagination/paginate");
-const tag_entity_1 = require("./entities/tag.entity");
 const tags_json_1 = __importDefault(require("../db/pickbazar/tags.json"));
+const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
 const fuse_js_1 = __importDefault(require("fuse.js"));
+const paginate_1 = require("../common/pagination/paginate");
+const tag_entity_1 = require("./entities/tag.entity");
 const tags = (0, class_transformer_1.plainToClass)(tag_entity_1.Tag, tags_json_1.default);
 const options = {
-    keys: ['name'],
+    keys: ["name"],
     threshold: 0.3,
 };
 const fuse = new fuse_js_1.default(tags, options);
@@ -35,11 +35,11 @@ let TagsService = class TagsService {
             page = 1;
         let data = this.tags;
         if (search) {
-            const parseSearchParams = search.split(';');
+            const parseSearchParams = search.split(";");
             const searchText = [];
             for (const searchParam of parseSearchParams) {
-                const [key, value] = searchParam.split(':');
-                if (key !== 'slug') {
+                const [key, value] = searchParam.split(":");
+                if (key !== "slug") {
                     searchText.push({
                         [key]: value,
                     });

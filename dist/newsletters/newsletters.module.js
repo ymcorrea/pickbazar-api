@@ -15,7 +15,7 @@ let NewslettersModule = class NewslettersModule {
 NewslettersModule = __decorate([
     (0, common_1.Module)({
         controllers: [newsletters_controller_1.NewslettersController],
-        providers: [newsletters_service_1.NewslettersService]
+        providers: [newsletters_service_1.NewslettersService],
     })
 ], NewslettersModule);
 exports.NewslettersModule = NewslettersModule;

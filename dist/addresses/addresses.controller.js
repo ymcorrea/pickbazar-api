@@ -16,8 +16,7 @@ exports.AddressesController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
 const addresses_service_1 = require("./addresses.service");
-const create_address_dto_1 = require("./dto/create-address.dto");
-const update_address_dto_1 = require("./dto/update-address.dto");
+const address_dto_1 = require("./dto/address.dto");
 let AddressesController = class AddressesController {
     constructor(addressesService) {
         this.addressesService = addressesService;
@@ -43,7 +42,7 @@ __decorate([
     openapi.ApiResponse({ status: 201, type: String }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_address_dto_1.CreateAddressDto]),
+    __metadata("design:paramtypes", [address_dto_1.CreateAddressDto]),
     __metadata("design:returntype", void 0)
 ], AddressesController.prototype, "createAddress", null);
 __decorate([
@@ -54,32 +53,32 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AddressesController.prototype, "addresses", null);
 __decorate([
-    (0, common_1.Get)(':id'),
+    (0, common_1.Get)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AddressesController.prototype, "address", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_address_dto_1.UpdateAddressDto]),
+    __metadata("design:paramtypes", [String, address_dto_1.UpdateAddressDto]),
     __metadata("design:returntype", void 0)
 ], AddressesController.prototype, "updateAddress", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: [Object] }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AddressesController.prototype, "deleteAddress", null);
 AddressesController = __decorate([
-    (0, common_1.Controller)('address'),
+    (0, common_1.Controller)("address"),
     __metadata("design:paramtypes", [addresses_service_1.AddressesService])
 ], AddressesController);
 exports.AddressesController = AddressesController;

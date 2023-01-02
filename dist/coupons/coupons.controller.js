@@ -16,9 +16,7 @@ exports.CouponsController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
 const coupons_service_1 = require("./coupons.service");
-const create_coupon_dto_1 = require("./dto/create-coupon.dto");
-const get_coupons_dto_1 = require("./dto/get-coupons.dto");
-const update_coupon_dto_1 = require("./dto/update-coupon.dto");
+const coupon_dto_1 = require("./dto/coupon.dto");
 let CouponsController = class CouponsController {
     constructor(couponsService) {
         this.couponsService = couponsService;
@@ -50,7 +48,7 @@ __decorate([
     openapi.ApiResponse({ status: 201, type: require("./entities/coupon.entity").Coupon }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_coupon_dto_1.CreateCouponDto]),
+    __metadata("design:paramtypes", [coupon_dto_1.CreateCouponDto]),
     __metadata("design:returntype", void 0)
 ], CouponsController.prototype, "createCoupon", null);
 __decorate([
@@ -58,7 +56,7 @@ __decorate([
     openapi.ApiResponse({ status: 200 }),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [get_coupons_dto_1.GetCouponsDto]),
+    __metadata("design:paramtypes", [coupon_dto_1.GetCouponsDto]),
     __metadata("design:returntype", void 0)
 ], CouponsController.prototype, "getCoupons", null);
 __decorate([
@@ -93,7 +91,7 @@ __decorate([
     __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_coupon_dto_1.UpdateCouponDto]),
+    __metadata("design:paramtypes", [String, coupon_dto_1.UpdateCouponDto]),
     __metadata("design:returntype", void 0)
 ], CouponsController.prototype, "updateCoupon", null);
 __decorate([

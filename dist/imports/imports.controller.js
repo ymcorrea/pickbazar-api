@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ImportsController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const imports_service_1 = require("./imports.service");
 const create_import_dto_1 = require("./dto/create-import.dto");
+const imports_service_1 = require("./imports.service");
 let ImportsController = class ImportsController {
     constructor(importsService) {
         this.importsService = importsService;
@@ -35,7 +35,7 @@ let ImportsController = class ImportsController {
     }
 };
 __decorate([
-    (0, common_1.Post)('import-attributes'),
+    (0, common_1.Post)("import-attributes"),
     openapi.ApiResponse({ status: 201, type: Boolean }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -43,7 +43,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ImportsController.prototype, "importAttributes", null);
 __decorate([
-    (0, common_1.Post)('import-products'),
+    (0, common_1.Post)("import-products"),
     openapi.ApiResponse({ status: 201, type: Boolean }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -51,7 +51,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ImportsController.prototype, "importProducts", null);
 __decorate([
-    (0, common_1.Post)('import-variation-options'),
+    (0, common_1.Post)("import-variation-options"),
     openapi.ApiResponse({ status: 201, type: Boolean }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

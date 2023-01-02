@@ -1,4 +1,4 @@
-import { CoreEntity } from 'src/common/entities/core.entity';
+import { CoreEntity } from "src/common/entities/core.entity";
 export declare class Tax extends CoreEntity {
     name: string;
     rate: number;

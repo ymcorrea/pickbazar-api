@@ -1,11 +1,11 @@
-import { OrdersService } from './orders.service';
-import { CreateOrderDto } from './dto/create-order.dto';
-import { UpdateOrderDto } from './dto/update-order.dto';
-import { GetOrdersDto, OrderPaginator } from './dto/get-orders.dto';
-import { CreateOrderStatusDto } from './dto/create-order-status.dto';
-import { GetOrderStatusesDto } from './dto/get-order-statuses.dto';
-import { CheckoutVerificationDto } from './dto/verify-checkout.dto';
-import { GetOrderFilesDto, OrderFilesPaginator } from './dto/get-downloads.dto';
+import { CreateOrderStatusDto } from "./dto/create-order-status.dto";
+import { CreateOrderDto } from "./dto/create-order.dto";
+import { GetOrderFilesDto, OrderFilesPaginator } from "./dto/get-downloads.dto";
+import { GetOrderStatusesDto } from "./dto/get-order-statuses.dto";
+import { GetOrdersDto, OrderPaginator } from "./dto/get-orders.dto";
+import { UpdateOrderDto } from "./dto/update-order.dto";
+import { CheckoutVerificationDto } from "./dto/verify-checkout.dto";
+import { OrdersService } from "./orders.service";
 export declare class OrdersController {
     private readonly ordersService;
     constructor(ordersService: OrdersService);

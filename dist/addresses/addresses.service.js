@@ -10,7 +10,7 @@ exports.AddressesService = void 0;
 const common_1 = require("@nestjs/common");
 let AddressesService = class AddressesService {
     create(createAddressDto) {
-        return 'This action adds a new address';
+        return "This action adds a new address";
     }
     findAll() {
         return `This action returns all addresses`;

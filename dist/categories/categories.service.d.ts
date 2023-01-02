@@ -1,7 +1,7 @@
-import { CreateCategoryDto } from './dto/create-category.dto';
-import { GetCategoriesDto } from './dto/get-categories.dto';
-import { UpdateCategoryDto } from './dto/update-category.dto';
-import { Category } from './entities/category.entity';
+import { CreateCategoryDto } from "./dto/create-category.dto";
+import { GetCategoriesDto } from "./dto/get-categories.dto";
+import { UpdateCategoryDto } from "./dto/update-category.dto";
+import { Category } from "./entities/category.entity";
 export declare class CategoriesService {
     private categories;
     create(createCategoryDto: CreateCategoryDto): Category;

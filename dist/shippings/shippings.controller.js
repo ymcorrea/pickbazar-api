@@ -15,10 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShippingsController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const shippings_service_1 = require("./shippings.service");
-const create_shipping_dto_1 = require("./dto/create-shipping.dto");
-const update_shipping_dto_1 = require("./dto/update-shipping.dto");
 const get_shippings_dto_1 = require("./dto/get-shippings.dto");
+const shipping_dto_1 = require("./dto/shipping.dto");
+const shippings_service_1 = require("./shippings.service");
 let ShippingsController = class ShippingsController {
     constructor(shippingsService) {
         this.shippingsService = shippingsService;
@@ -44,7 +43,7 @@ __decorate([
     openapi.ApiResponse({ status: 201, type: require("./entities/shipping.entity").Shipping }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_shipping_dto_1.CreateShippingDto]),
+    __metadata("design:paramtypes", [shipping_dto_1.CreateShippingDto]),
     __metadata("design:returntype", void 0)
 ], ShippingsController.prototype, "create", null);
 __decorate([
@@ -56,32 +55,32 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ShippingsController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
+    (0, common_1.Get)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/shipping.entity").Shipping }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ShippingsController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/shipping.entity").Shipping }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_shipping_dto_1.UpdateShippingDto]),
+    __metadata("design:paramtypes", [String, shipping_dto_1.UpdateShippingDto]),
     __metadata("design:returntype", void 0)
 ], ShippingsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ShippingsController.prototype, "remove", null);
 ShippingsController = __decorate([
-    (0, common_1.Controller)('shippings'),
+    (0, common_1.Controller)("shippings"),
     __metadata("design:paramtypes", [shippings_service_1.ShippingsService])
 ], ShippingsController);
 exports.ShippingsController = ShippingsController;

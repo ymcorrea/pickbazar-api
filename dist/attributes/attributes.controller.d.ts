@@ -1,6 +1,6 @@
-import { AttributesService } from './attributes.service';
-import { CreateAttributeDto } from './dto/create-attribute.dto';
-import { UpdateAttributeDto } from './dto/update-attribute.dto';
+import { AttributesService } from "./attributes.service";
+import { CreateAttributeDto } from "./dto/create-attribute.dto";
+import { UpdateAttributeDto } from "./dto/update-attribute.dto";
 export declare class AttributesController {
     private readonly attributesService;
     constructor(attributesService: AttributesService);

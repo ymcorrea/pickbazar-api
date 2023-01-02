@@ -1,6 +1,5 @@
-import { CreateFeedBackDto } from './dto/create-feedback.dto';
-import { UpdateFeedBackDto } from './dto/update-feedback.dto';
-import { FeedbackService } from './feedbacks.service';
+import { CreateFeedBackDto, UpdateFeedBackDto } from "./dto/feedback.dto";
+import { FeedbackService } from "./feedbacks.service";
 export declare class FeedbackController {
     private feedbackService;
     constructor(feedbackService: FeedbackService);

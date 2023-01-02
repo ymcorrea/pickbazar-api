@@ -15,11 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TopManufacturersController = exports.ManufacturersController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const manufacturers_service_1 = require("./manufacturers.service");
-const get_top_manufacturers_dto_1 = require("./dto/get-top-manufacturers.dto");
 const get_manufactures_dto_1 = require("./dto/get-manufactures.dto");
-const create_manufacturer_dto_1 = require("./dto/create-manufacturer.dto");
-const update_manufacturer_dto_1 = require("./dto/update-manufacturer.dto");
+const manufacturer_dto_1 = require("./dto/manufacturer.dto");
+const manufacturers_service_1 = require("./manufacturers.service");
 let ManufacturersController = class ManufacturersController {
     constructor(manufacturersService) {
         this.manufacturersService = manufacturersService;
@@ -45,7 +43,7 @@ __decorate([
     openapi.ApiResponse({ status: 201, type: require("./entities/manufacturer.entity").Manufacturer }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_manufacturer_dto_1.CreateManufacturerDto]),
+    __metadata("design:paramtypes", [manufacturer_dto_1.CreateManufacturerDto]),
     __metadata("design:returntype", void 0)
 ], ManufacturersController.prototype, "createProduct", null);
 __decorate([
@@ -57,32 +55,32 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ManufacturersController.prototype, "getManufactures", null);
 __decorate([
-    (0, common_1.Get)(':slug'),
+    (0, common_1.Get)(":slug"),
     openapi.ApiResponse({ status: 200, type: require("./entities/manufacturer.entity").Manufacturer }),
-    __param(0, (0, common_1.Param)('slug')),
+    __param(0, (0, common_1.Param)("slug")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], ManufacturersController.prototype, "getManufactureBySlug", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/manufacturer.entity").Manufacturer }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_manufacturer_dto_1.UpdateManufacturerDto]),
+    __metadata("design:paramtypes", [String, manufacturer_dto_1.UpdateManufacturerDto]),
     __metadata("design:returntype", void 0)
 ], ManufacturersController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ManufacturersController.prototype, "remove", null);
 ManufacturersController = __decorate([
-    (0, common_1.Controller)('manufacturers'),
+    (0, common_1.Controller)("manufacturers"),
     __metadata("design:paramtypes", [manufacturers_service_1.ManufacturersService])
 ], ManufacturersController);
 exports.ManufacturersController = ManufacturersController;
@@ -99,11 +97,11 @@ __decorate([
     openapi.ApiResponse({ status: 200, type: [require("./entities/manufacturer.entity").Manufacturer] }),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [get_top_manufacturers_dto_1.GetTopManufacturersDto]),
+    __metadata("design:paramtypes", [manufacturer_dto_1.GetTopManufacturersDto]),
     __metadata("design:returntype", Promise)
 ], TopManufacturersController.prototype, "getTopManufactures", null);
 TopManufacturersController = __decorate([
-    (0, common_1.Controller)('top-manufacturers'),
+    (0, common_1.Controller)("top-manufacturers"),
     __metadata("design:paramtypes", [manufacturers_service_1.ManufacturersService])
 ], TopManufacturersController);
 exports.TopManufacturersController = TopManufacturersController;

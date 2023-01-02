@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.paginate = void 0;
 const constants_1 = require("../constants");
-function paginate(totalItems, current_page = 1, pageSize = 10, count = 0, url = '') {
+function paginate(totalItems, current_page = 1, pageSize = 10, count = 0, url = "") {
     const totalPages = Math.ceil(totalItems / pageSize);
     if (current_page < 1) {
         current_page = 1;

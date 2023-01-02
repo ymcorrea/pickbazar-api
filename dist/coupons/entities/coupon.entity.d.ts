@@ -1,6 +1,4 @@
-import { Attachment } from "src/common/entities/attachment.entity";
 import { CoreEntity } from "src/common/entities/core.entity";
-import { Order } from "src/orders/entities/order.entity";
 export declare enum CouponType {
     FIXED_COUPON = "fixed",
     PERCENTAGE_COUPON = "percentage",
@@ -10,13 +8,10 @@ export declare enum CouponType {
 export declare class Coupon extends CoreEntity {
     code: string;
     description?: string;
-    orders?: Order[];
     type: CouponType;
-    image: Attachment;
     is_valid: boolean;
     amount: number;
     active_from: string;
     expire_at: string;
     language: string;
-    translated_languages: string[];
 }

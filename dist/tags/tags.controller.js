@@ -15,10 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TagsController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const tags_service_1 = require("./tags.service");
-const create_tag_dto_1 = require("./dto/create-tag.dto");
-const update_tag_dto_1 = require("./dto/update-tag.dto");
 const get_tags_dto_1 = require("./dto/get-tags.dto");
+const tag_dto_1 = require("./dto/tag.dto");
+const tags_service_1 = require("./tags.service");
 let TagsController = class TagsController {
     constructor(tagsService) {
         this.tagsService = tagsService;
@@ -44,7 +43,7 @@ __decorate([
     openapi.ApiResponse({ status: 201 }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_tag_dto_1.CreateTagDto]),
+    __metadata("design:paramtypes", [tag_dto_1.CreateTagDto]),
     __metadata("design:returntype", void 0)
 ], TagsController.prototype, "create", null);
 __decorate([
@@ -56,33 +55,33 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TagsController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':param'),
+    (0, common_1.Get)(":param"),
     openapi.ApiResponse({ status: 200, type: require("./entities/tag.entity").Tag }),
-    __param(0, (0, common_1.Param)('param')),
-    __param(1, (0, common_1.Query)('language')),
+    __param(0, (0, common_1.Param)("param")),
+    __param(1, (0, common_1.Query)("language")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", void 0)
 ], TagsController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/tag.entity").Tag }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_tag_dto_1.UpdateTagDto]),
+    __metadata("design:paramtypes", [String, tag_dto_1.UpdateTagDto]),
     __metadata("design:returntype", void 0)
 ], TagsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], TagsController.prototype, "remove", null);
 TagsController = __decorate([
-    (0, common_1.Controller)('tags'),
+    (0, common_1.Controller)("tags"),
     __metadata("design:paramtypes", [tags_service_1.TagsService])
 ], TagsController);
 exports.TagsController = TagsController;

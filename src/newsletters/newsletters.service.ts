@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import { CreateNewSubscriberDto } from './dto/create-new-subscriber.dto';
+import { Injectable } from "@nestjs/common";
+import { CreateNewSubscriberDto } from "./dto/create-new-subscriber.dto";
 
 @Injectable()
 export class NewslettersService {

@@ -6,11 +6,11 @@ export class PaginatorInfo {
   last_page: number;
   per_page: number;
   total: number;
-  'first_page_url': string;
-  'last_page_url': string;
+  "first_page_url": string;
+  "last_page_url": string;
 
-  'next_page_url': string;
-  'prev_page_url': string;
+  "next_page_url": string;
+  "prev_page_url": string;
 }
 // "current_page": 1,
 //   "first_page_url": "https://pickbazarapi.redq.io/admin/users?page=1",

@@ -1,4 +1,4 @@
-import { ImportDto } from './dto/create-import.dto';
+import { ImportDto } from "./dto/create-import.dto";
 export declare class ImportsService {
     create(createImportDto: ImportDto): string;
     findAll(): string;

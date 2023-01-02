@@ -1,6 +1,5 @@
-import { CreateTaxDto } from './dto/create-tax.dto';
-import { UpdateTaxDto } from './dto/update-tax.dto';
-import { Tax } from './entities/tax.entity';
+import { CreateTaxDto, UpdateTaxDto } from "./dto/tax.dto";
+import { Tax } from "./entities/tax.entity";
 export declare class TaxesService {
     private taxes;
     create(createTaxDto: CreateTaxDto): Tax;

@@ -1,6 +1,5 @@
-import { AddressesService } from './addresses.service';
-import { CreateAddressDto } from './dto/create-address.dto';
-import { UpdateAddressDto } from './dto/update-address.dto';
+import { AddressesService } from "./addresses.service";
+import { CreateAddressDto, UpdateAddressDto } from "./dto/address.dto";
 export declare class AddressesController {
     private readonly addressesService;
     constructor(addressesService: AddressesService);

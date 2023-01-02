@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { ImportDto } from './dto/create-import.dto';
+import { Injectable } from "@nestjs/common";
+import { ImportDto } from "./dto/create-import.dto";
 
 @Injectable()
 export class ImportsService {
   create(createImportDto: ImportDto) {
-    return 'This action adds a new import';
+    return "This action adds a new import";
   }
 
   findAll() {

@@ -1,8 +1,6 @@
-import { Manufacturer } from './entities/manufacturer.entity';
-import { GetTopManufacturersDto } from './dto/get-top-manufacturers.dto';
-import { GetManufacturersDto, ManufacturerPaginator } from './dto/get-manufactures.dto';
-import { CreateManufacturerDto } from './dto/create-manufacturer.dto';
-import { UpdateManufacturerDto } from './dto/update-manufacturer.dto';
+import { GetManufacturersDto, ManufacturerPaginator } from "./dto/get-manufactures.dto";
+import { CreateManufacturerDto, GetTopManufacturersDto, UpdateManufacturerDto } from "./dto/manufacturer.dto";
+import { Manufacturer } from "./entities/manufacturer.entity";
 export declare class ManufacturersService {
     private manufacturers;
     create(createManufactureDto: CreateManufacturerDto): Manufacturer;

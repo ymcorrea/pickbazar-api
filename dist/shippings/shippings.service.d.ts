@@ -1,7 +1,6 @@
-import { CreateShippingDto } from './dto/create-shipping.dto';
-import { GetShippingsDto } from './dto/get-shippings.dto';
-import { UpdateShippingDto } from './dto/update-shipping.dto';
-import { Shipping } from './entities/shipping.entity';
+import { GetShippingsDto } from "./dto/get-shippings.dto";
+import { CreateShippingDto, UpdateShippingDto } from "./dto/shipping.dto";
+import { Shipping } from "./entities/shipping.entity";
 export declare class ShippingsService {
     private shippings;
     create(createShippingDto: CreateShippingDto): Shipping;

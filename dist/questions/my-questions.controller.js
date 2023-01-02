@@ -15,9 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MyQuestionsController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const create_question_dto_1 = require("./dto/create-question.dto");
 const get_questions_dto_1 = require("./dto/get-questions.dto");
-const update_question_dto_1 = require("./dto/update-question.dto");
+const question_dto_1 = require("./dto/question.dto");
 const my_questions_service_1 = require("./my-questions.service");
 let MyQuestionsController = class MyQuestionsController {
     constructor(myQuestionService) {
@@ -48,9 +47,9 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], MyQuestionsController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
+    (0, common_1.Get)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/question.entity").Question }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
@@ -60,28 +59,28 @@ __decorate([
     openapi.ApiResponse({ status: 201, type: require("./entities/question.entity").Question }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_question_dto_1.CreateQuestionDto]),
+    __metadata("design:paramtypes", [question_dto_1.CreateQuestionDto]),
     __metadata("design:returntype", void 0)
 ], MyQuestionsController.prototype, "create", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/question.entity").Question }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_question_dto_1.UpdateQuestionDto]),
+    __metadata("design:paramtypes", [String, question_dto_1.UpdateQuestionDto]),
     __metadata("design:returntype", void 0)
 ], MyQuestionsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/question.entity").Question }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], MyQuestionsController.prototype, "delete", null);
 MyQuestionsController = __decorate([
-    (0, common_1.Controller)('my-questions'),
+    (0, common_1.Controller)("my-questions"),
     __metadata("design:paramtypes", [my_questions_service_1.MyQuestionsService])
 ], MyQuestionsController);
 exports.MyQuestionsController = MyQuestionsController;

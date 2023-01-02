@@ -10,12 +10,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.QuestionService = void 0;
+const questions_json_1 = __importDefault(require("../db/pickbazar/questions.json"));
 const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
 const fuse_js_1 = __importDefault(require("fuse.js"));
 const paginate_1 = require("../common/pagination/paginate");
 const question_entity_1 = require("./entities/question.entity");
-const questions_json_1 = __importDefault(require("../db/pickbazar/questions.json"));
 const questions = (0, class_transformer_1.plainToClass)(question_entity_1.Question, questions_json_1.default);
 const options = {
     keys: [],
@@ -36,9 +36,9 @@ let QuestionService = class QuestionService {
         const endIndex = page * limit;
         let data = this.question;
         if (search) {
-            const parseSearchParams = search.split(';');
+            const parseSearchParams = search.split(";");
             for (const searchParam of parseSearchParams) {
-                const [key, value] = searchParam.split(':');
+                const [key, value] = searchParam.split(":");
                 data = (_a = fuse.search(value)) === null || _a === void 0 ? void 0 : _a.map(({ item }) => item);
             }
         }

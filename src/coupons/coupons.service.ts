@@ -3,9 +3,11 @@ import { Injectable } from "@nestjs/common";
 import { plainToClass } from "class-transformer";
 import Fuse from "fuse.js";
 import { paginate } from "src/common/pagination/paginate";
-import { CreateCouponDto } from "./dto/create-coupon.dto";
-import { GetCouponsDto } from "./dto/get-coupons.dto";
-import { UpdateCouponDto } from "./dto/update-coupon.dto";
+import {
+  CreateCouponDto,
+  GetCouponsDto,
+  UpdateCouponDto,
+} from "./dto/coupon.dto";
 import { Coupon } from "./entities/coupon.entity";
 
 const coupons = plainToClass(Coupon, couponsJson);

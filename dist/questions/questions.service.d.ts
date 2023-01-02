@@ -1,7 +1,6 @@
-import { Question } from './entities/question.entity';
-import { GetQuestionDto } from './dto/get-questions.dto';
-import { CreateQuestionDto } from './dto/create-question.dto';
-import { UpdateQuestionDto } from './dto/update-question.dto';
+import { GetQuestionDto } from "./dto/get-questions.dto";
+import { CreateQuestionDto, UpdateQuestionDto } from "./dto/question.dto";
+import { Question } from "./entities/question.entity";
 export declare class QuestionService {
     private question;
     findAllQuestions({ limit, page, search, answer, product_id, }: GetQuestionDto): {

@@ -1,16 +1,13 @@
-import { CreateTagDto } from './dto/create-tag.dto';
-import { GetTagsDto } from './dto/get-tags.dto';
-import { UpdateTagDto } from './dto/update-tag.dto';
-import { Tag } from './entities/tag.entity';
+import { GetTagsDto } from "./dto/get-tags.dto";
+import { CreateTagDto, UpdateTagDto } from "./dto/tag.dto";
+import { Tag } from "./entities/tag.entity";
 export declare class TagsService {
     private tags;
     create(createTagDto: CreateTagDto): {
         name: string;
-        language: string;
-        type: import("../types/entities/type.entity").Type;
-        image: import("../common/entities/attachment.entity").Attachment;
         details: string;
         icon: string;
+        language: string;
         id: number;
     };
     findAll({ page, limit, search }: GetTagsDto): {

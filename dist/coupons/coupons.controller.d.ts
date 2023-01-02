@@ -1,7 +1,5 @@
 import { CouponsService } from "./coupons.service";
-import { CreateCouponDto } from "./dto/create-coupon.dto";
-import { GetCouponsDto } from "./dto/get-coupons.dto";
-import { UpdateCouponDto } from "./dto/update-coupon.dto";
+import { CreateCouponDto, GetCouponsDto, UpdateCouponDto } from "./dto/coupon.dto";
 export declare class CouponsController {
     private readonly couponsService;
     constructor(couponsService: CouponsService);

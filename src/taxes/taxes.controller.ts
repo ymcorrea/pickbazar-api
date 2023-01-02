@@ -1,19 +1,18 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Put,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Post,
+  Put,
   Query,
-} from '@nestjs/common';
-import { TaxesService } from './taxes.service';
-import { CreateTaxDto } from './dto/create-tax.dto';
-import { UpdateTaxDto } from './dto/update-tax.dto';
-import { GetTaxesDto } from './dto/get-taxes.dto';
+} from "@nestjs/common";
+import { GetTaxesDto } from "./dto/get-taxes.dto";
+import { CreateTaxDto, UpdateTaxDto } from "./dto/tax.dto";
+import { TaxesService } from "./taxes.service";
 
-@Controller('taxes')
+@Controller("taxes")
 export class TaxesController {
   constructor(private readonly taxesService: TaxesService) {}
 
@@ -27,18 +26,18 @@ export class TaxesController {
     return this.taxesService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
+  @Get(":id")
+  findOne(@Param("id") id: string) {
     return this.taxesService.findOne(+id);
   }
 
-  @Put(':id')
-  update(@Param('id') id: string, @Body() updateTaxDto: UpdateTaxDto) {
+  @Put(":id")
+  update(@Param("id") id: string, @Body() updateTaxDto: UpdateTaxDto) {
     return this.taxesService.update(+id, updateTaxDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.taxesService.remove(+id);
   }
 }

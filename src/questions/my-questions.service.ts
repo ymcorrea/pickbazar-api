@@ -1,16 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { plainToClass } from 'class-transformer';
-import Fuse from 'fuse.js';
-import { paginate } from 'src/common/pagination/paginate';
-import { Question } from './entities/question.entity';
-import { GetQuestionDto } from './dto/get-questions.dto';
-import { CreateQuestionDto } from './dto/create-question.dto';
-import { UpdateQuestionDto } from './dto/update-question.dto';
-import questionsJSON from '@db/questions.json';
+import questionsJSON from "@db/questions.json";
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import Fuse from "fuse.js";
+import { paginate } from "src/common/pagination/paginate";
+import { GetQuestionDto } from "./dto/get-questions.dto";
+import { CreateQuestionDto, UpdateQuestionDto } from "./dto/question.dto";
+import { Question } from "./entities/question.entity";
 
 const myQuestions = plainToClass(Question, questionsJSON);
 const options = {
-  keys: ['answer'],
+  keys: ["answer"],
   threshold: 0.3,
 };
 const fuse = new Fuse(myQuestions, options);
@@ -27,9 +26,9 @@ export class MyQuestionsService {
     let data: Question[] = this.myQuestion;
 
     if (search) {
-      const parseSearchParams = search.split(';');
+      const parseSearchParams = search.split(";");
       for (const searchParam of parseSearchParams) {
-        const [key, value] = searchParam.split(':');
+        const [key, value] = searchParam.split(":");
         data = fuse.search(value)?.map(({ item }) => item);
       }
     }

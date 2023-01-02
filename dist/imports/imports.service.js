@@ -10,7 +10,7 @@ exports.ImportsService = void 0;
 const common_1 = require("@nestjs/common");
 let ImportsService = class ImportsService {
     create(createImportDto) {
-        return 'This action adds a new import';
+        return "This action adds a new import";
     }
     findAll() {
         return `This action returns all imports`;
