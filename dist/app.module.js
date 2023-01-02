@@ -30,7 +30,6 @@ const reports_module_1 = require("./reports/reports.module");
 const reviews_module_1 = require("./reviews/reviews.module");
 const settings_module_1 = require("./settings/settings.module");
 const shippings_module_1 = require("./shippings/shippings.module");
-const shops_module_1 = require("./shops/shops.module");
 const tags_module_1 = require("./tags/tags.module");
 const taxes_module_1 = require("./taxes/taxes.module");
 const types_module_1 = require("./types/types.module");
@@ -54,7 +53,6 @@ AppModule = __decorate([
             shippings_module_1.ShippingsModule,
             taxes_module_1.TaxesModule,
             tags_module_1.TagsModule,
-            shops_module_1.ShopsModule,
             types_module_1.TypesModule,
             withdraws_module_1.WithdrawsModule,
             uploads_module_1.UploadsModule,

@@ -1,26 +1,25 @@
-import { Injectable } from '@nestjs/common';
-import { plainToClass } from 'class-transformer';
-import { CreateProductDto } from './dto/create-product.dto';
-import { GetProductsDto, ProductPaginator } from './dto/get-products.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
-import { Product } from './entities/product.entity';
-import { paginate } from 'src/common/pagination/paginate';
-import productsJson from '@db/products.json';
-import Fuse from 'fuse.js';
-import { GetPopularProductsDto } from './dto/get-popular-products.dto';
+import productsJson from "@db/products.json";
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import Fuse from "fuse.js";
+import { paginate } from "src/common/pagination/paginate";
+import { CreateProductDto } from "./dto/create-product.dto";
+import { GetPopularProductsDto } from "./dto/get-popular-products.dto";
+import { GetProductsDto, ProductPaginator } from "./dto/get-products.dto";
+import { UpdateProductDto } from "./dto/update-product.dto";
+import { Product } from "./entities/product.entity";
 
 const products = plainToClass(Product, productsJson);
 
 const options = {
   keys: [
-    'name',
-    'type.slug',
-    'categories.slug',
-    'status',
-    'shop_id',
-    'author.slug',
-    'tags',
-    'manufacturer.slug',
+    "name",
+    "type.slug",
+    "categories.slug",
+    "status",
+    "author.slug",
+    "tags",
+    "manufacturer.slug",
   ],
   threshold: 0.3,
 };
@@ -41,12 +40,12 @@ export class ProductsService {
     const endIndex = page * limit;
     let data: Product[] = this.products;
     if (search) {
-      const parseSearchParams = search.split(';');
+      const parseSearchParams = search.split(";");
       const searchText: any = [];
       for (const searchParam of parseSearchParams) {
-        const [key, value] = searchParam.split(':');
+        const [key, value] = searchParam.split(":");
         // TODO: Temp Solution
-        if (key !== 'slug') {
+        if (key !== "slug") {
           searchText.push({
             [key]: value,
           });

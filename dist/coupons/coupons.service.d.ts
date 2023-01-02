@@ -1,7 +1,7 @@
-import { CreateCouponDto } from './dto/create-coupon.dto';
-import { UpdateCouponDto } from './dto/update-coupon.dto';
-import { Coupon } from './entities/coupon.entity';
-import { GetCouponsDto } from './dto/get-coupons.dto';
+import { CreateCouponDto } from "./dto/create-coupon.dto";
+import { GetCouponsDto } from "./dto/get-coupons.dto";
+import { UpdateCouponDto } from "./dto/update-coupon.dto";
+import { Coupon } from "./entities/coupon.entity";
 export declare class CouponsService {
     private coupons;
     create(createCouponDto: CreateCouponDto): Coupon;

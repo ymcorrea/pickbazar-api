@@ -10,21 +10,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrdersService = void 0;
-const common_1 = require("@nestjs/common");
-const orders_json_1 = __importDefault(require("../db/pickbazar/orders.json"));
-const order_statuses_json_1 = __importDefault(require("../db/pickbazar/order-statuses.json"));
 const order_export_json_1 = __importDefault(require("../db/pickbazar/order-export.json"));
-const order_invoice_json_1 = __importDefault(require("../db/pickbazar/order-invoice.json"));
 const order_files_json_1 = __importDefault(require("../db/pickbazar/order-files.json"));
+const order_invoice_json_1 = __importDefault(require("../db/pickbazar/order-invoice.json"));
+const order_statuses_json_1 = __importDefault(require("../db/pickbazar/order-statuses.json"));
+const orders_json_1 = __importDefault(require("../db/pickbazar/orders.json"));
+const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
-const order_entity_1 = require("./entities/order.entity");
-const order_status_entity_1 = require("./entities/order-status.entity");
-const paginate_1 = require("../common/pagination/paginate");
 const fuse_js_1 = __importDefault(require("fuse.js"));
+const paginate_1 = require("../common/pagination/paginate");
+const order_status_entity_1 = require("./entities/order-status.entity");
+const order_entity_1 = require("./entities/order.entity");
 const orders = (0, class_transformer_1.plainToClass)(order_entity_1.Order, orders_json_1.default);
 const orderStatus = (0, class_transformer_1.plainToClass)(order_status_entity_1.OrderStatus, order_statuses_json_1.default);
 const options = {
-    keys: ['name'],
+    keys: ["name"],
     threshold: 0.3,
 };
 const fuse = new fuse_js_1.default(orderStatus, options);
@@ -39,7 +39,6 @@ let OrdersService = class OrdersService {
         return this.orders[0];
     }
     getOrders({ limit, page, customer_id, tracking_number, search, shop_id, }) {
-        var _a;
         if (!page)
             page = 1;
         if (!limit)
@@ -47,9 +46,6 @@ let OrdersService = class OrdersService {
         const startIndex = (page - 1) * limit;
         const endIndex = page * limit;
         let data = this.orders;
-        if (shop_id && shop_id !== 'undefined') {
-            data = (_a = this.orders) === null || _a === void 0 ? void 0 : _a.filter((p) => { var _a; return ((_a = p === null || p === void 0 ? void 0 : p.shop) === null || _a === void 0 ? void 0 : _a.id) === Number(shop_id); });
-        }
         const results = data.slice(startIndex, endIndex);
         const url = `/orders?search=${search}&limit=${limit}`;
         return Object.assign({ data: results }, (0, paginate_1.paginate)(data.length, page, limit, results.length, url));
@@ -58,7 +54,7 @@ let OrdersService = class OrdersService {
         return this.orders.find((p) => p.id === Number(id) || p.tracking_number === id);
     }
     getOrderByTrackingNumber(tracking_number) {
-        console.log('t', tracking_number);
+        console.log("t", tracking_number);
         const parentOrder = this.orders.find((p) => p.tracking_number === tracking_number);
         if (!parentOrder) {
             return this.orders[0];
@@ -75,11 +71,11 @@ let OrdersService = class OrdersService {
         const endIndex = page * limit;
         let data = this.orderStatus;
         if (search) {
-            const parseSearchParams = search.split(';');
+            const parseSearchParams = search.split(";");
             const searchText = [];
             for (const searchParam of parseSearchParams) {
-                const [key, value] = searchParam.split(':');
-                if (key !== 'slug') {
+                const [key, value] = searchParam.split(":");
+                if (key !== "slug") {
                     searchText.push({
                         [key]: value,
                     });

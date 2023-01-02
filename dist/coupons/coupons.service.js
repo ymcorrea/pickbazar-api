@@ -10,15 +10,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CouponsService = void 0;
+const coupons_json_1 = __importDefault(require("../db/pickbazar/coupons.json"));
 const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
-const coupon_entity_1 = require("./entities/coupon.entity");
-const coupons_json_1 = __importDefault(require("../db/pickbazar/coupons.json"));
 const fuse_js_1 = __importDefault(require("fuse.js"));
 const paginate_1 = require("../common/pagination/paginate");
+const coupon_entity_1 = require("./entities/coupon.entity");
 const coupons = (0, class_transformer_1.plainToClass)(coupon_entity_1.Coupon, coupons_json_1.default);
 const options = {
-    keys: ['code'],
+    keys: ["code"],
     threshold: 0.3,
 };
 const fuse = new fuse_js_1.default(coupons, options);
@@ -39,11 +39,11 @@ let CouponsService = class CouponsService {
         const endIndex = page * limit;
         let data = this.coupons;
         if (search) {
-            const parseSearchParams = search.split(';');
+            const parseSearchParams = search.split(";");
             const searchText = [];
             for (const searchParam of parseSearchParams) {
-                const [key, value] = searchParam.split(':');
-                if (key !== 'slug') {
+                const [key, value] = searchParam.split(":");
+                if (key !== "slug") {
                     searchText.push({
                         [key]: value,
                     });
@@ -76,15 +76,15 @@ let CouponsService = class CouponsService {
                 description: null,
                 image: {
                     id: 925,
-                    original: 'https://pickbazarlaravel.s3.ap-southeast-1.amazonaws.com/925/5x2x.png',
-                    thumbnail: 'https://pickbazarlaravel.s3.ap-southeast-1.amazonaws.com/925/conversions/5x2x-thumbnail.jpg',
+                    original: "https://pickbazarlaravel.s3.ap-southeast-1.amazonaws.com/925/5x2x.png",
+                    thumbnail: "https://pickbazarlaravel.s3.ap-southeast-1.amazonaws.com/925/conversions/5x2x-thumbnail.jpg",
                 },
-                type: 'fixed',
+                type: "fixed",
                 amount: 5,
-                active_from: '2021-03-28T05:46:42.000Z',
-                expire_at: '2024-06-23T05:46:42.000Z',
-                created_at: '2021-03-28T05:48:16.000000Z',
-                updated_at: '2021-08-19T03:58:34.000000Z',
+                active_from: "2021-03-28T05:46:42.000Z",
+                expire_at: "2024-06-23T05:46:42.000Z",
+                created_at: "2021-03-28T05:48:16.000000Z",
+                updated_at: "2021-08-19T03:58:34.000000Z",
                 deleted_at: null,
                 is_valid: true,
             },

@@ -1,4 +1,13 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Request,
+  UnauthorizedException,
+  UseGuards,
+} from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
 import { AuthService } from "./auth.service";
 import {
   ChangePasswordDto,
@@ -50,8 +59,12 @@ export class AuthController {
     return this.authService.resetPassword(resetPasswordDto);
   }
   @Post("change-password")
-  changePassword(@Body() changePasswordDto: ChangePasswordDto) {
-    return this.authService.changePassword(changePasswordDto);
+  @UseGuards(AuthGuard("jwt"))
+  changePassword(@Body() changePasswordDto: ChangePasswordDto, @Request() req) {
+    if (!req.user.email) {
+      throw new UnauthorizedException("You must be logged in");
+    }
+    return this.authService.changePassword(changePasswordDto, req.user.email);
   }
   @Post("logout")
   async logout(): Promise<boolean> {
@@ -64,10 +77,14 @@ export class AuthController {
     return this.authService.verifyForgetPasswordToken(verifyForgetPasswordDto);
   }
 
-  // @Get('me')
-  // me() {
-  //   return this.authService.me();
-  // }
+  @UseGuards(AuthGuard("jwt"))
+  @Get("me")
+  me(@Request() req) {
+    if (!req.user.email) {
+      throw new UnauthorizedException("You must be logged in");
+    }
+    return this.authService.findme(req.user.email);
+  }
 
   // @Post('add-points')
   // addWalletPoints(@Body() addPointsDto: any) {

@@ -1,14 +1,11 @@
-import { Attachment } from 'src/common/entities/attachment.entity';
-import { CoreEntity } from 'src/common/entities/core.entity';
-import { User } from './user.entity';
+import { CoreEntity } from "src/common/entities/core.entity";
+import { User } from "./user.entity";
 export declare class Profile extends CoreEntity {
-    avatar?: Attachment;
     bio?: string;
-    socials?: Social[];
     contact?: string;
-    customer?: User;
+    user: User;
 }
-export declare class Social {
+export declare class Social extends CoreEntity {
     type: string;
     link: string;
 }

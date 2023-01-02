@@ -1,9 +1,9 @@
-import { ProductsService } from './products.service';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
-import { GetProductsDto, ProductPaginator } from './dto/get-products.dto';
-import { Product } from './entities/product.entity';
-import { GetPopularProductsDto } from './dto/get-popular-products.dto';
+import { CreateProductDto } from "./dto/create-product.dto";
+import { GetPopularProductsDto } from "./dto/get-popular-products.dto";
+import { GetProductsDto, ProductPaginator } from "./dto/get-products.dto";
+import { UpdateProductDto } from "./dto/update-product.dto";
+import { Product } from "./entities/product.entity";
+import { ProductsService } from "./products.service";
 export declare class ProductsController {
     private readonly productsService;
     constructor(productsService: ProductsService);

@@ -8,7 +8,7 @@ export declare class AuthService {
     constructor(usersRepository: Repository<User>, jwtService: JwtService);
     register(createUserInput: RegisterDto): Promise<AuthResponse>;
     login(loginInput: LoginDto): Promise<AuthResponse>;
-    changePassword(changePasswordInput: ChangePasswordDto): Promise<CoreResponse>;
+    changePassword(changePasswordInput: ChangePasswordDto, email: string): Promise<CoreResponse>;
     forgetPassword(forgetPasswordInput: ForgetPasswordDto): Promise<CoreResponse>;
     verifyForgetPasswordToken(verifyForgetPasswordTokenInput: VerifyForgetPasswordDto): Promise<CoreResponse>;
     resetPassword(resetPasswordInput: ResetPasswordDto): Promise<CoreResponse>;
@@ -16,5 +16,11 @@ export declare class AuthService {
     otpLogin(otpLoginDto: OtpLoginDto): Promise<AuthResponse>;
     verifyOtpCode(verifyOtpInput: VerifyOtpDto): Promise<CoreResponse>;
     sendOtpCode(otpInput: OtpDto): Promise<OtpResponse>;
+    findme(email: string): Promise<{
+        id: number;
+        name: string;
+        email: string;
+        profile: import("../users/entities/profile.entity").Profile;
+    }>;
     findUserByEmail(email: string): Promise<User>;
 }

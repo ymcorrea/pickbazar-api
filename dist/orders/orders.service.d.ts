@@ -1,12 +1,12 @@
-import { CreateOrderDto } from './dto/create-order.dto';
-import { GetOrdersDto, OrderPaginator } from './dto/get-orders.dto';
-import { UpdateOrderDto } from './dto/update-order.dto';
-import { Order, OrderFiles } from './entities/order.entity';
-import { OrderStatus } from './entities/order-status.entity';
-import { GetOrderStatusesDto, OrderStatusPaginator } from './dto/get-order-statuses.dto';
-import { CheckoutVerificationDto, VerifiedCheckoutData } from './dto/verify-checkout.dto';
-import { CreateOrderStatusDto, UpdateOrderStatusDto } from './dto/create-order-status.dto';
-import { GetOrderFilesDto } from './dto/get-downloads.dto';
+import { CreateOrderStatusDto, UpdateOrderStatusDto } from "./dto/create-order-status.dto";
+import { CreateOrderDto } from "./dto/create-order.dto";
+import { GetOrderFilesDto } from "./dto/get-downloads.dto";
+import { GetOrderStatusesDto, OrderStatusPaginator } from "./dto/get-order-statuses.dto";
+import { GetOrdersDto, OrderPaginator } from "./dto/get-orders.dto";
+import { UpdateOrderDto } from "./dto/update-order.dto";
+import { CheckoutVerificationDto, VerifiedCheckoutData } from "./dto/verify-checkout.dto";
+import { OrderStatus } from "./entities/order-status.entity";
+import { Order, OrderFiles } from "./entities/order.entity";
 export declare class OrdersService {
     private orders;
     private orderStatus;

@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
+const passport_1 = require("@nestjs/passport");
 const auth_service_1 = require("./auth.service");
 const create_auth_dto_1 = require("./dto/create-auth.dto");
 let AuthController = class AuthController {
@@ -45,14 +46,23 @@ let AuthController = class AuthController {
     resetPassword(resetPasswordDto) {
         return this.authService.resetPassword(resetPasswordDto);
     }
-    changePassword(changePasswordDto) {
-        return this.authService.changePassword(changePasswordDto);
+    changePassword(changePasswordDto, req) {
+        if (!req.user.email) {
+            throw new common_1.UnauthorizedException("You must be logged in");
+        }
+        return this.authService.changePassword(changePasswordDto, req.user.email);
     }
     async logout() {
         return true;
     }
     verifyForgetPassword(verifyForgetPasswordDto) {
         return this.authService.verifyForgetPasswordToken(verifyForgetPasswordDto);
+    }
+    me(req) {
+        if (!req.user.email) {
+            throw new common_1.UnauthorizedException("You must be logged in");
+        }
+        return this.authService.findme(req.user.email);
     }
     contactUs(addPointsDto) {
         return {
@@ -127,10 +137,12 @@ __decorate([
 ], AuthController.prototype, "resetPassword", null);
 __decorate([
     (0, common_1.Post)("change-password"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     openapi.ApiResponse({ status: 201, type: require("./dto/create-auth.dto").CoreResponse }),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_auth_dto_1.ChangePasswordDto]),
+    __metadata("design:paramtypes", [create_auth_dto_1.ChangePasswordDto, Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "changePassword", null);
 __decorate([
@@ -148,6 +160,15 @@ __decorate([
     __metadata("design:paramtypes", [create_auth_dto_1.VerifyForgetPasswordDto]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "verifyForgetPassword", null);
+__decorate([
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
+    (0, common_1.Get)("me"),
+    openapi.ApiResponse({ status: 200 }),
+    __param(0, (0, common_1.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "me", null);
 __decorate([
     (0, common_1.Post)("contact-us"),
     openapi.ApiResponse({ status: 201 }),

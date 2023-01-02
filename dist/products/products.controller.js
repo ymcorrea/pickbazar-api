@@ -15,11 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PopularProductsController = exports.ProductsController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const products_service_1 = require("./products.service");
 const create_product_dto_1 = require("./dto/create-product.dto");
-const update_product_dto_1 = require("./dto/update-product.dto");
-const get_products_dto_1 = require("./dto/get-products.dto");
 const get_popular_products_dto_1 = require("./dto/get-popular-products.dto");
+const get_products_dto_1 = require("./dto/get-products.dto");
+const update_product_dto_1 = require("./dto/update-product.dto");
+const products_service_1 = require("./products.service");
 let ProductsController = class ProductsController {
     constructor(productsService) {
         this.productsService = productsService;
@@ -57,32 +57,32 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "getProducts", null);
 __decorate([
-    (0, common_1.Get)(':slug'),
+    (0, common_1.Get)(":slug"),
     openapi.ApiResponse({ status: 200, type: require("./entities/product.entity").Product }),
-    __param(0, (0, common_1.Param)('slug')),
+    __param(0, (0, common_1.Param)("slug")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "getProductBySlug", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: Object }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_product_dto_1.UpdateProductDto]),
     __metadata("design:returntype", void 0)
 ], ProductsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ProductsController.prototype, "remove", null);
 ProductsController = __decorate([
-    (0, common_1.Controller)('products'),
+    (0, common_1.Controller)("products"),
     __metadata("design:paramtypes", [products_service_1.ProductsService])
 ], ProductsController);
 exports.ProductsController = ProductsController;
@@ -103,7 +103,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PopularProductsController.prototype, "getProducts", null);
 PopularProductsController = __decorate([
-    (0, common_1.Controller)('popular-products'),
+    (0, common_1.Controller)("popular-products"),
     __metadata("design:paramtypes", [products_service_1.ProductsService])
 ], PopularProductsController);
 exports.PopularProductsController = PopularProductsController;

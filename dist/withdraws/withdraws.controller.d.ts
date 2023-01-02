@@ -6,11 +6,11 @@ export declare class WithdrawsController {
     private readonly withdrawsService;
     constructor(withdrawsService: WithdrawsService);
     createWithdraw(createWithdrawDto: CreateWithdrawDto): {
-        shop_id: number;
-        details: string;
         amount: number;
         note: string;
+        details: string;
         payment_method: string;
+        shop_id: number;
         id: number;
     };
     withdraws(query: GetWithdrawsDto): Promise<WithdrawPaginator>;

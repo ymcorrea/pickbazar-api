@@ -1,19 +1,19 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Put,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Post,
+  Put,
   Query,
-} from '@nestjs/common';
-import { CouponsService } from './coupons.service';
-import { CreateCouponDto } from './dto/create-coupon.dto';
-import { GetCouponsDto } from './dto/get-coupons.dto';
-import { UpdateCouponDto } from './dto/update-coupon.dto';
+} from "@nestjs/common";
+import { CouponsService } from "./coupons.service";
+import { CreateCouponDto } from "./dto/create-coupon.dto";
+import { GetCouponsDto } from "./dto/get-coupons.dto";
+import { UpdateCouponDto } from "./dto/update-coupon.dto";
 
-@Controller('coupons')
+@Controller("coupons")
 export class CouponsController {
   constructor(private readonly couponsService: CouponsService) {}
 
@@ -27,34 +27,34 @@ export class CouponsController {
     return this.couponsService.getCoupons(query);
   }
 
-  @Get(':param')
+  @Get(":param")
   getCoupon(
-    @Param('param') param: string,
-    @Query('language') language: string,
+    @Param("param") param: string,
+    @Query("language") language: string,
   ) {
     return this.couponsService.getCoupon(param, language);
   }
 
-  @Get(':id/verify')
-  verify(@Param('param') param: string, @Query('language') language: string) {
+  @Get(":id/verify")
+  verify(@Param("param") param: string, @Query("language") language: string) {
     return this.couponsService.getCoupon(param, language);
   }
 
-  @Post('verify')
-  verifyCoupon(@Body('code') code: string) {
+  @Post("verify")
+  verifyCoupon(@Body("code") code: string) {
     return this.couponsService.verifyCoupon(code);
   }
 
-  @Put(':id')
+  @Put(":id")
   updateCoupon(
-    @Param('id') id: string,
+    @Param("id") id: string,
     @Body() updateCouponDto: UpdateCouponDto,
   ) {
     return this.couponsService.update(+id, updateCouponDto);
   }
 
-  @Delete(':id')
-  deleteCoupon(@Param('id') id: string) {
+  @Delete(":id")
+  deleteCoupon(@Param("id") id: string) {
     return this.couponsService.remove(+id);
   }
 }

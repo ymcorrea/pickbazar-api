@@ -11,9 +11,15 @@ export declare class AuthController {
     verifyOtpCode(verifyOtpDto: VerifyOtpDto): Promise<import("./dto/create-auth.dto").CoreResponse>;
     forgetPassword(forgetPasswordDto: ForgetPasswordDto): Promise<import("./dto/create-auth.dto").CoreResponse>;
     resetPassword(resetPasswordDto: ResetPasswordDto): Promise<import("./dto/create-auth.dto").CoreResponse>;
-    changePassword(changePasswordDto: ChangePasswordDto): Promise<import("./dto/create-auth.dto").CoreResponse>;
+    changePassword(changePasswordDto: ChangePasswordDto, req: any): Promise<import("./dto/create-auth.dto").CoreResponse>;
     logout(): Promise<boolean>;
     verifyForgetPassword(verifyForgetPasswordDto: VerifyForgetPasswordDto): Promise<import("./dto/create-auth.dto").CoreResponse>;
+    me(req: any): Promise<{
+        id: number;
+        name: string;
+        email: string;
+        profile: import("../users/entities/profile.entity").Profile;
+    }>;
     contactUs(addPointsDto: any): {
         success: boolean;
         message: string;

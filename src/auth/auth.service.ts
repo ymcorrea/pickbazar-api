@@ -52,12 +52,18 @@ export class AuthService {
 
     const result = await this.usersRepository.save(user);
 
+    const profile = {
+      id: result.id,
+      name: result.name,
+      email: result.email,
+    };
+
     // genarate JWT token
-    // const accessToken = await this.jwtService.sign(result.profile);
+    const accessToken = await this.jwtService.sign(profile);
 
     if (result?.email) {
       return {
-        token: "accessToken",
+        token: accessToken,
         permissions: ["super_admin", "customer"],
       };
     }
@@ -77,19 +83,47 @@ export class AuthService {
       throw new BadRequestException("Password does not match!");
     }
 
-    // const accessToken = await this.jwtService.sign(user.profile);
+    const profile = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+    };
+
+    // genarate JWT token
+    const accessToken = await this.jwtService.sign(profile);
 
     return {
-      token: "accessToken",
+      token: accessToken,
       permissions: ["super_admin", "customer"],
     };
   }
 
   async changePassword(
     changePasswordInput: ChangePasswordDto,
+    email: string,
   ): Promise<CoreResponse> {
-    console.log(changePasswordInput);
+    const { oldPassword, newPassword } = changePasswordInput;
 
+    const user = await this.findUserByEmail(email);
+
+    if (!user) {
+      throw new ConflictException("User does not exist!");
+    }
+
+    const salt = user.salt;
+    const hashPassword = await bycript.hash(oldPassword, salt);
+    const db_password = user.password;
+
+    if (!(hashPassword === db_password)) {
+      throw new BadRequestException("Password does not match!");
+    }
+
+    const newSalt = await bycript.genSalt();
+    const newHashPassword = await bycript.hash(newPassword, newSalt);
+
+    user.salt = newSalt;
+    user.password = newHashPassword;
+    await this.usersRepository.save(user);
     return {
       success: true,
       message: "Password change successful",
@@ -163,6 +197,22 @@ export class AuthService {
       phone_number: "+919494949494",
       is_contact_exist: true,
     };
+  }
+
+  // Cheack email alrady exist?
+  async findme(email: string) {
+    const user = await this.usersRepository.findOne({
+      where: { email: email },
+    });
+
+    const userProfile = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      profile: user.profile,
+    };
+
+    return userProfile;
   }
 
   // Cheack email alrady exist?

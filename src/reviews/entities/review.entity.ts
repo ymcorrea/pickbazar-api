@@ -1,17 +1,15 @@
-import { CoreEntity } from 'src/common/entities/core.entity';
-import { Order } from 'src/orders/entities/order.entity';
-import { Shop } from 'src/shops/entities/shop.entity';
-import { User } from 'src/users/entities/user.entity';
-import { Product } from 'src/products/entities/product.entity';
-import { Attachment } from 'src/common/entities/attachment.entity';
-import { Report } from './reports.entity';
-import { Feedback } from 'src/feedbacks/entities/feedback.entity';
+import { Attachment } from "src/common/entities/attachment.entity";
+import { CoreEntity } from "src/common/entities/core.entity";
+import { Feedback } from "src/feedbacks/entities/feedback.entity";
+import { Order } from "src/orders/entities/order.entity";
+import { Product } from "src/products/entities/product.entity";
+import { User } from "src/users/entities/user.entity";
+import { Report } from "./reports.entity";
 
 export class Review extends CoreEntity {
   rating: number;
   name: string;
   comment: string;
-  shop: Shop;
   order: Order;
   customer: User;
   photos: Attachment[];

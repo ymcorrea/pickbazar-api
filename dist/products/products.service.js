@@ -10,23 +10,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductsService = void 0;
+const products_json_1 = __importDefault(require("../db/pickbazar/products.json"));
 const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
-const product_entity_1 = require("./entities/product.entity");
-const paginate_1 = require("../common/pagination/paginate");
-const products_json_1 = __importDefault(require("../db/pickbazar/products.json"));
 const fuse_js_1 = __importDefault(require("fuse.js"));
+const paginate_1 = require("../common/pagination/paginate");
+const product_entity_1 = require("./entities/product.entity");
 const products = (0, class_transformer_1.plainToClass)(product_entity_1.Product, products_json_1.default);
 const options = {
     keys: [
-        'name',
-        'type.slug',
-        'categories.slug',
-        'status',
-        'shop_id',
-        'author.slug',
-        'tags',
-        'manufacturer.slug',
+        "name",
+        "type.slug",
+        "categories.slug",
+        "status",
+        "author.slug",
+        "tags",
+        "manufacturer.slug",
     ],
     threshold: 0.3,
 };
@@ -48,11 +47,11 @@ let ProductsService = class ProductsService {
         const endIndex = page * limit;
         let data = this.products;
         if (search) {
-            const parseSearchParams = search.split(';');
+            const parseSearchParams = search.split(";");
             const searchText = [];
             for (const searchParam of parseSearchParams) {
-                const [key, value] = searchParam.split(':');
-                if (key !== 'slug') {
+                const [key, value] = searchParam.split(":");
+                if (key !== "slug") {
                     searchText.push({
                         [key]: value,
                     });

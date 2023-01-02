@@ -7,15 +7,15 @@ import {
   Post,
   Put,
   Query,
-} from '@nestjs/common';
-import { AuthorsService } from './authors.service';
-import { AuthorPaginator, GetAuthorDto } from './dto/get-author.dto';
-import { GetTopAuthorsDto } from './dto/get-top-authors.dto';
-import { Author } from './entities/author.entity';
-import { UpdateAuthorDto } from './dto/update-author.dto';
-import { CreateAuthorDto } from './dto/create-author.dto';
+} from "@nestjs/common";
+import { AuthorsService } from "./authors.service";
+import { CreateAuthorDto } from "./dto/create-author.dto";
+import { AuthorPaginator, GetAuthorDto } from "./dto/get-author.dto";
+import { GetTopAuthorsDto } from "./dto/get-top-authors.dto";
+import { UpdateAuthorDto } from "./dto/update-author.dto";
+import { Author } from "./entities/author.entity";
 
-@Controller('authors')
+@Controller("authors")
 export class AuthorsController {
   constructor(private readonly authorsService: AuthorsService) {}
 
@@ -29,23 +29,23 @@ export class AuthorsController {
     return this.authorsService.getAuthors(query);
   }
 
-  @Get(':slug')
-  async getAuthorBySlug(@Param('slug') slug: string): Promise<Author> {
+  @Get(":slug")
+  async getAuthorBySlug(@Param("slug") slug: string): Promise<Author> {
     return this.authorsService.getAuthorBySlug(slug);
   }
 
-  @Put(':id')
-  update(@Param('id') id: string, @Body() updateAuthorDto: UpdateAuthorDto) {
+  @Put(":id")
+  update(@Param("id") id: string, @Body() updateAuthorDto: UpdateAuthorDto) {
     return this.authorsService.update(+id, updateAuthorDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.authorsService.remove(+id);
   }
 }
 
-@Controller('top-authors')
+@Controller("top-authors")
 export class TopAuthors {
   constructor(private authorsService: AuthorsService) {}
 

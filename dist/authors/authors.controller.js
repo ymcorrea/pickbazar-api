@@ -16,10 +16,10 @@ exports.TopAuthors = exports.AuthorsController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
 const authors_service_1 = require("./authors.service");
+const create_author_dto_1 = require("./dto/create-author.dto");
 const get_author_dto_1 = require("./dto/get-author.dto");
 const get_top_authors_dto_1 = require("./dto/get-top-authors.dto");
 const update_author_dto_1 = require("./dto/update-author.dto");
-const create_author_dto_1 = require("./dto/create-author.dto");
 let AuthorsController = class AuthorsController {
     constructor(authorsService) {
         this.authorsService = authorsService;
@@ -57,32 +57,32 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AuthorsController.prototype, "getAuthors", null);
 __decorate([
-    (0, common_1.Get)(':slug'),
+    (0, common_1.Get)(":slug"),
     openapi.ApiResponse({ status: 200, type: require("./entities/author.entity").Author }),
-    __param(0, (0, common_1.Param)('slug')),
+    __param(0, (0, common_1.Param)("slug")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], AuthorsController.prototype, "getAuthorBySlug", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/author.entity").Author }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_author_dto_1.UpdateAuthorDto]),
     __metadata("design:returntype", void 0)
 ], AuthorsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AuthorsController.prototype, "remove", null);
 AuthorsController = __decorate([
-    (0, common_1.Controller)('authors'),
+    (0, common_1.Controller)("authors"),
     __metadata("design:paramtypes", [authors_service_1.AuthorsService])
 ], AuthorsController);
 exports.AuthorsController = AuthorsController;
@@ -103,7 +103,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TopAuthors.prototype, "getTopAuthors", null);
 TopAuthors = __decorate([
-    (0, common_1.Controller)('top-authors'),
+    (0, common_1.Controller)("top-authors"),
     __metadata("design:paramtypes", [authors_service_1.AuthorsService])
 ], TopAuthors);
 exports.TopAuthors = TopAuthors;

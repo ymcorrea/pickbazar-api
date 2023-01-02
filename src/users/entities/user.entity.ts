@@ -1,6 +1,8 @@
 import { CoreEntity } from "src/common/entities/core.entity";
+import { Order } from "src/orders/entities/order.entity";
 // import { Order } from 'src/orders/entities/order.entity';
-import { Column, Entity } from "typeorm";
+import { Column, Entity, OneToMany, OneToOne } from "typeorm";
+import { Profile } from "./profile.entity";
 
 @Entity()
 export class User extends CoreEntity {
@@ -11,27 +13,20 @@ export class User extends CoreEntity {
   email: string;
 
   @Column()
-  password?: string;
+  password: string;
 
   @Column()
   salt: string;
 
-  // @Column()
-  // shop_id?: number;
-
-  // @Column()
-  // profile?: Profile;
-
-  // @Column()
-  // shops?: Shop[];
-
-  // @Column()
-  // managed_shop?: Shop;
-
-  // @Column()
-  // is_active?: boolean = true;
+  @Column({ default: true })
+  is_active: boolean;
 
   // @Column()
   // address?: Address[];
-  // orders?: Order[];
+
+  @OneToMany(() => Order, (order) => order.customer)
+  orders: Order[];
+
+  @OneToOne(() => Profile, (profile) => profile.user)
+  profile: Profile;
 }

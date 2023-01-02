@@ -62,50 +62,50 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CouponsController.prototype, "getCoupons", null);
 __decorate([
-    (0, common_1.Get)(':param'),
+    (0, common_1.Get)(":param"),
     openapi.ApiResponse({ status: 200, type: require("./entities/coupon.entity").Coupon }),
-    __param(0, (0, common_1.Param)('param')),
-    __param(1, (0, common_1.Query)('language')),
+    __param(0, (0, common_1.Param)("param")),
+    __param(1, (0, common_1.Query)("language")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", void 0)
 ], CouponsController.prototype, "getCoupon", null);
 __decorate([
-    (0, common_1.Get)(':id/verify'),
+    (0, common_1.Get)(":id/verify"),
     openapi.ApiResponse({ status: 200, type: require("./entities/coupon.entity").Coupon }),
-    __param(0, (0, common_1.Param)('param')),
-    __param(1, (0, common_1.Query)('language')),
+    __param(0, (0, common_1.Param)("param")),
+    __param(1, (0, common_1.Query)("language")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", void 0)
 ], CouponsController.prototype, "verify", null);
 __decorate([
-    (0, common_1.Post)('verify'),
+    (0, common_1.Post)("verify"),
     openapi.ApiResponse({ status: 201 }),
-    __param(0, (0, common_1.Body)('code')),
+    __param(0, (0, common_1.Body)("code")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], CouponsController.prototype, "verifyCoupon", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(":id"),
     openapi.ApiResponse({ status: 200, type: require("./entities/coupon.entity").Coupon }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_coupon_dto_1.UpdateCouponDto]),
     __metadata("design:returntype", void 0)
 ], CouponsController.prototype, "updateCoupon", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
+    (0, common_1.Delete)(":id"),
     openapi.ApiResponse({ status: 200, type: String }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], CouponsController.prototype, "deleteCoupon", null);
 CouponsController = __decorate([
-    (0, common_1.Controller)('coupons'),
+    (0, common_1.Controller)("coupons"),
     __metadata("design:paramtypes", [coupons_service_1.CouponsService])
 ], CouponsController);
 exports.CouponsController = CouponsController;

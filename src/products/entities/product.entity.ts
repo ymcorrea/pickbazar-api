@@ -1,21 +1,20 @@
-import { AttributeValue } from 'src/attributes/entities/attribute-value.entity';
-import { Category } from 'src/categories/entities/category.entity';
-import { Attachment } from 'src/common/entities/attachment.entity';
-import { CoreEntity } from 'src/common/entities/core.entity';
-import { Order } from 'src/orders/entities/order.entity';
-import { Shop } from 'src/shops/entities/shop.entity';
-import { Tag } from 'src/tags/entities/tag.entity';
-import { Type } from 'src/types/entities/type.entity';
-import { Review } from '../../reviews/entities/review.entity';
+import { AttributeValue } from "src/attributes/entities/attribute-value.entity";
+import { Category } from "src/categories/entities/category.entity";
+import { Attachment } from "src/common/entities/attachment.entity";
+import { CoreEntity } from "src/common/entities/core.entity";
+import { Order } from "src/orders/entities/order.entity";
+import { Tag } from "src/tags/entities/tag.entity";
+import { Type } from "src/types/entities/type.entity";
+import { Review } from "../../reviews/entities/review.entity";
 
 enum ProductStatus {
-  PUBLISH = 'publish',
-  DRAFT = 'draft',
+  PUBLISH = "publish",
+  DRAFT = "draft",
 }
 
 enum ProductType {
-  SIMPLE = 'simple',
-  VARIABLE = 'variable',
+  SIMPLE = "simple",
+  VARIABLE = "variable",
 }
 
 export class Product extends CoreEntity {
@@ -30,7 +29,6 @@ export class Product extends CoreEntity {
   variation_options?: Variation[];
   pivot?: OrderProductPivot;
   orders?: Order[];
-  shop: Shop;
   shop_id: number;
   related_products?: Product[];
   description: string;

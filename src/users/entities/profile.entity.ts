@@ -1,16 +1,25 @@
-import { Attachment } from 'src/common/entities/attachment.entity';
-import { CoreEntity } from 'src/common/entities/core.entity';
-import { User } from './user.entity';
+import { CoreEntity } from "src/common/entities/core.entity";
+import { Column, Entity, OneToOne } from "typeorm";
+import { User } from "./user.entity";
 
+@Entity()
 export class Profile extends CoreEntity {
-  avatar?: Attachment;
+  // avatar?: Attachment;
+  @Column()
   bio?: string;
-  socials?: Social[];
+
+  // @Column()
+  // socials?: Social[];
+
+  @Column()
   contact?: string;
-  customer?: User;
+
+  @OneToOne((type) => User, (user) => user.profile)
+  user: User;
 }
 
-export class Social {
+// @Entity()
+export class Social extends CoreEntity {
   type: string;
   link: string;
 }

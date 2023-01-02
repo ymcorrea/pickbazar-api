@@ -1,36 +1,36 @@
-import { Injectable } from '@nestjs/common';
-import { CreateOrderDto } from './dto/create-order.dto';
-import { GetOrdersDto, OrderPaginator } from './dto/get-orders.dto';
-import { UpdateOrderDto } from './dto/update-order.dto';
-import ordersJson from '@db/orders.json';
-import orderStatusJson from '@db/order-statuses.json';
-import exportOrderJson from '@db/order-export.json';
-import orderInvoiceJson from '@db/order-invoice.json';
-import orderFilesJson from '@db/order-files.json';
-import { plainToClass } from 'class-transformer';
-import { Order, OrderFiles } from './entities/order.entity';
-import { OrderStatus } from './entities/order-status.entity';
-import { paginate } from 'src/common/pagination/paginate';
-import {
-  GetOrderStatusesDto,
-  OrderStatusPaginator,
-} from './dto/get-order-statuses.dto';
-import {
-  CheckoutVerificationDto,
-  VerifiedCheckoutData,
-} from './dto/verify-checkout.dto';
+import exportOrderJson from "@db/order-export.json";
+import orderFilesJson from "@db/order-files.json";
+import orderInvoiceJson from "@db/order-invoice.json";
+import orderStatusJson from "@db/order-statuses.json";
+import ordersJson from "@db/orders.json";
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import Fuse from "fuse.js";
+import { paginate } from "src/common/pagination/paginate";
 import {
   CreateOrderStatusDto,
   UpdateOrderStatusDto,
-} from './dto/create-order-status.dto';
-import { GetOrderFilesDto } from './dto/get-downloads.dto';
-import Fuse from 'fuse.js';
+} from "./dto/create-order-status.dto";
+import { CreateOrderDto } from "./dto/create-order.dto";
+import { GetOrderFilesDto } from "./dto/get-downloads.dto";
+import {
+  GetOrderStatusesDto,
+  OrderStatusPaginator,
+} from "./dto/get-order-statuses.dto";
+import { GetOrdersDto, OrderPaginator } from "./dto/get-orders.dto";
+import { UpdateOrderDto } from "./dto/update-order.dto";
+import {
+  CheckoutVerificationDto,
+  VerifiedCheckoutData,
+} from "./dto/verify-checkout.dto";
+import { OrderStatus } from "./entities/order-status.entity";
+import { Order, OrderFiles } from "./entities/order.entity";
 
 const orders = plainToClass(Order, ordersJson);
 const orderStatus = plainToClass(OrderStatus, orderStatusJson);
 
 const options = {
-  keys: ['name'],
+  keys: ["name"],
   threshold: 0.3,
 };
 const fuse = new Fuse(orderStatus, options);
@@ -62,9 +62,6 @@ export class OrdersService {
 
     let data: Order[] = this.orders;
 
-    if (shop_id && shop_id !== 'undefined') {
-      data = this.orders?.filter((p) => p?.shop?.id === Number(shop_id));
-    }
     const results = data.slice(startIndex, endIndex);
     const url = `/orders?search=${search}&limit=${limit}`;
     return {
@@ -80,7 +77,7 @@ export class OrdersService {
   }
 
   getOrderByTrackingNumber(tracking_number: string): Order {
-    console.log('t', tracking_number);
+    console.log("t", tracking_number);
     const parentOrder = this.orders.find(
       (p) => p.tracking_number === tracking_number,
     );
@@ -107,12 +104,12 @@ export class OrdersService {
     // }
 
     if (search) {
-      const parseSearchParams = search.split(';');
+      const parseSearchParams = search.split(";");
       const searchText: any = [];
       for (const searchParam of parseSearchParams) {
-        const [key, value] = searchParam.split(':');
+        const [key, value] = searchParam.split(":");
         // TODO: Temp Solution
-        if (key !== 'slug') {
+        if (key !== "slug") {
           searchText.push({
             [key]: value,
           });

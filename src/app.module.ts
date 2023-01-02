@@ -21,7 +21,6 @@ import { ReportsModule } from "./reports/reports.module";
 import { ReviewModule } from "./reviews/reviews.module";
 import { SettingsModule } from "./settings/settings.module";
 import { ShippingsModule } from "./shippings/shippings.module";
-import { ShopsModule } from "./shops/shops.module";
 import { TagsModule } from "./tags/tags.module";
 import { TaxesModule } from "./taxes/taxes.module";
 import { TypesModule } from "./types/types.module";
@@ -43,7 +42,6 @@ import { WithdrawsModule } from "./withdraws/withdraws.module";
     ShippingsModule,
     TaxesModule,
     TagsModule,
-    ShopsModule,
     TypesModule,
     WithdrawsModule,
     UploadsModule,

@@ -7,8 +7,8 @@ export declare class TagsController {
     constructor(tagsService: TagsService);
     create(createTagDto: CreateTagDto): {
         name: string;
-        type: import("../types/entities/type.entity").Type;
         language: string;
+        type: import("../types/entities/type.entity").Type;
         details: string;
         icon: string;
         image: import("../common/entities/attachment.entity").Attachment;

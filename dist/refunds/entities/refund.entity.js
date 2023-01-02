@@ -12,7 +12,7 @@ var RefundStatus;
 })(RefundStatus = exports.RefundStatus || (exports.RefundStatus = {}));
 class Refund extends core_entity_1.CoreEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { amount: { required: true, type: () => String }, status: { required: true, enum: require("./refund.entity").RefundStatus }, shop: { required: true, type: () => require("../../shops/entities/shop.entity").Shop }, order: { required: true, type: () => require("../../orders/entities/order.entity").Order }, customer: { required: true, type: () => require("../../users/entities/user.entity").User } };
+        return { amount: { required: true, type: () => String }, status: { required: true, enum: require("./refund.entity").RefundStatus }, order: { required: true, type: () => require("../../orders/entities/order.entity").Order }, customer: { required: true, type: () => require("../../users/entities/user.entity").User } };
     }
 }
 exports.Refund = Refund;
