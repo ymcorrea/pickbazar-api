@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingsController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
-const settings_service_1 = require("./settings.service");
 const create_setting_dto_1 = require("./dto/create-setting.dto");
+const settings_service_1 = require("./settings.service");
 let SettingsController = class SettingsController {
     constructor(settingsService) {
         this.settingsService = settingsService;
@@ -44,7 +44,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], SettingsController.prototype, "findAll", null);
 SettingsController = __decorate([
-    (0, common_1.Controller)('settings'),
+    (0, common_1.Controller)("settings"),
     __metadata("design:paramtypes", [settings_service_1.SettingsService])
 ], SettingsController);
 exports.SettingsController = SettingsController;

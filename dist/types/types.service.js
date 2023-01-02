@@ -17,7 +17,7 @@ const types_json_1 = __importDefault(require("../db/pickbazar/types.json"));
 const fuse_js_1 = __importDefault(require("fuse.js"));
 const types = (0, class_transformer_1.plainToClass)(type_entity_1.Type, types_json_1.default);
 const options = {
-    keys: ['name'],
+    keys: ["name"],
     threshold: 0.3,
 };
 const fuse = new fuse_js_1.default(types, options);
@@ -28,15 +28,15 @@ let TypesService = class TypesService {
     getTypes({ text, search }) {
         var _a, _b;
         let data = this.types;
-        if (text === null || text === void 0 ? void 0 : text.replace(/%/g, '')) {
+        if (text === null || text === void 0 ? void 0 : text.replace(/%/g, "")) {
             data = (_a = fuse.search(text)) === null || _a === void 0 ? void 0 : _a.map(({ item }) => item);
         }
         if (search) {
-            const parseSearchParams = search.split(';');
+            const parseSearchParams = search.split(";");
             const searchText = [];
             for (const searchParam of parseSearchParams) {
-                const [key, value] = searchParam.split(':');
-                if (key !== 'slug') {
+                const [key, value] = searchParam.split(":");
+                if (key !== "slug") {
                     searchText.push({
                         [key]: value,
                     });

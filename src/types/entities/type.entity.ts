@@ -1,5 +1,5 @@
-import { Attachment } from 'src/common/entities/attachment.entity';
-import { CoreEntity } from 'src/common/entities/core.entity';
+import { Attachment } from "src/common/entities/attachment.entity";
+import { CoreEntity } from "src/common/entities/core.entity";
 
 export class Type extends CoreEntity {
   name: string;

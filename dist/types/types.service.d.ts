@@ -1,7 +1,7 @@
-import { CreateTypeDto } from './dto/create-type.dto';
-import { UpdateTypeDto } from './dto/update-type.dto';
-import { Type } from './entities/type.entity';
-import { GetTypesDto } from './dto/get-types.dto';
+import { CreateTypeDto } from "./dto/create-type.dto";
+import { UpdateTypeDto } from "./dto/update-type.dto";
+import { Type } from "./entities/type.entity";
+import { GetTypesDto } from "./dto/get-types.dto";
 export declare class TypesService {
     private types;
     getTypes({ text, search }: GetTypesDto): Type[];

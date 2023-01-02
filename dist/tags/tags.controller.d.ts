@@ -9,9 +9,9 @@ export declare class TagsController {
         name: string;
         language: string;
         type: import("../types/entities/type.entity").Type;
+        image: import("../common/entities/attachment.entity").Attachment;
         details: string;
         icon: string;
-        image: import("../common/entities/attachment.entity").Attachment;
         id: number;
     };
     findAll(query: GetTagsDto): Promise<TagPaginator>;

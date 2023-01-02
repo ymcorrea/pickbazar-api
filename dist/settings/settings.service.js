@@ -10,10 +10,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingsService = void 0;
+const settings_json_1 = __importDefault(require("../db/pickbazar/settings.json"));
 const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
 const setting_entity_1 = require("./entities/setting.entity");
-const settings_json_1 = __importDefault(require("../db/pickbazar/settings.json"));
 const settings = (0, class_transformer_1.plainToClass)(setting_entity_1.Setting, settings_json_1.default);
 let SettingsService = class SettingsService {
     constructor() {

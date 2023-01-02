@@ -1,5 +1,5 @@
-import { SettingsService } from './settings.service';
-import { CreateSettingDto } from './dto/create-setting.dto';
+import { CreateSettingDto } from "./dto/create-setting.dto";
+import { SettingsService } from "./settings.service";
 export declare class SettingsController {
     private readonly settingsService;
     constructor(settingsService: SettingsService);

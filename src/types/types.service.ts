@@ -1,16 +1,16 @@
-import { Injectable } from '@nestjs/common';
-import { plainToClass } from 'class-transformer';
-import { CreateTypeDto } from './dto/create-type.dto';
-import { UpdateTypeDto } from './dto/update-type.dto';
-import { Type } from './entities/type.entity';
+import { Injectable } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import { CreateTypeDto } from "./dto/create-type.dto";
+import { UpdateTypeDto } from "./dto/update-type.dto";
+import { Type } from "./entities/type.entity";
 
-import typesJson from '@db/types.json';
-import Fuse from 'fuse.js';
-import { GetTypesDto } from './dto/get-types.dto';
+import typesJson from "@db/types.json";
+import Fuse from "fuse.js";
+import { GetTypesDto } from "./dto/get-types.dto";
 
 const types = plainToClass(Type, typesJson);
 const options = {
-  keys: ['name'],
+  keys: ["name"],
   threshold: 0.3,
 };
 const fuse = new Fuse(types, options);
@@ -21,17 +21,17 @@ export class TypesService {
 
   getTypes({ text, search }: GetTypesDto) {
     let data: Type[] = this.types;
-    if (text?.replace(/%/g, '')) {
+    if (text?.replace(/%/g, "")) {
       data = fuse.search(text)?.map(({ item }) => item);
     }
 
     if (search) {
-      const parseSearchParams = search.split(';');
+      const parseSearchParams = search.split(";");
       const searchText: any = [];
       for (const searchParam of parseSearchParams) {
-        const [key, value] = searchParam.split(':');
+        const [key, value] = searchParam.split(":");
         // TODO: Temp Solution
-        if (key !== 'slug') {
+        if (key !== "slug") {
           searchText.push({
             [key]: value,
           });
