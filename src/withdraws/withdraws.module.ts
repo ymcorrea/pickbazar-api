@@ -6,4 +6,4 @@ import { WithdrawsController } from './withdraws.controller';
   controllers: [WithdrawsController],
   providers: [WithdrawsService],
 })
-export class WithdrawsModule {}
+export class WithdrawsModule {} 

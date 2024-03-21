@@ -10,7 +10,7 @@ import {
 } from "@nestjs/common";
 import { GetShippingsDto } from "./dto/get-shippings.dto";
 import { CreateShippingDto, UpdateShippingDto } from "./dto/shipping.dto";
-import { ShippingsService } from "./shippings.service";
+import { ShippingsService } from "./shippings.service"; 
 
 @Controller("shippings")
 export class ShippingsController {

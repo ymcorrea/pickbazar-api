@@ -12,7 +12,7 @@ export class TaxesService {
 
   create(createTaxDto: CreateTaxDto) {
     return this.taxes[0];
-  }
+  } 
 
   findAll() {
     return this.taxes;

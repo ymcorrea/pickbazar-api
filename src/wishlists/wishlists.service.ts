@@ -10,7 +10,7 @@ import wishlistsJSON from '@db/wishlists.json';
 import productsJson from '@db/products.json';
 import { Product } from '../products/entities/product.entity';
 
-const wishlists = plainToClass(Wishlist, wishlistsJSON);
+const wishlists = plainToClass(Wishlist, wishlistsJSON); 
 const products = plainToClass(Product, productsJson);
 const options = {
   keys: ['answer'],

@@ -12,6 +12,6 @@ export enum RefundStatus {
 export class Refund extends CoreEntity {
   amount: string;
   status: RefundStatus;
-  order: Order;
+  order: Order; 
   customer: User;
 }

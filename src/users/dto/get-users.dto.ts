@@ -12,7 +12,7 @@ export class GetUsersDto extends PaginationArgs {
   orderBy?: QueryUsersOrderByColumn;
   sortedBy?: SortOrder;
   text?: string;
-  search?: string;
+  search?: string; 
 }
 
 export enum QueryUsersOrderByColumn {

@@ -6,5 +6,5 @@ export class CreateTaxDto extends OmitType(Tax, [
   "created_at",
   "updated_at",
 ]) {}
-
+ 
 export class UpdateTaxDto extends PartialType(CreateTaxDto) {}

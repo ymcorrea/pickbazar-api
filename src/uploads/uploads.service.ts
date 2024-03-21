@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 export class UploadsService {
   findAll() {
     return `This action returns all uploads`;
-  }
+  } 
 
   findOne(id: number) {
     return `This action returns a #${id} upload`;

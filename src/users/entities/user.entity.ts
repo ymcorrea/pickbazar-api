@@ -8,7 +8,7 @@ import { Profile } from "./profile.entity";
 export class User extends CoreEntity {
   @Column()
   name: string;
-
+ 
   @Column()
   email: string;
 

@@ -9,3 +9,4 @@ import { WishlistsService } from './wishlists.service';
   providers: [WishlistsService, MyWishlistService],
 })
 export class WishlistsModule {}
+ 

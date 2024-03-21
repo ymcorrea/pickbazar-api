@@ -11,7 +11,7 @@ import { GetTypesDto } from "./dto/get-types.dto";
 const types = plainToClass(Type, typesJson);
 const options = {
   keys: ["name"],
-  threshold: 0.3,
+  threshold: 0.3, 
 };
 const fuse = new Fuse(types, options);
 

@@ -12,5 +12,5 @@ export enum QueryTaxClassesOrderByColumn {
   NAME = 'NAME',
   RATE = 'RATE',
   COUNTRY = 'COUNTRY',
-  STATE = 'STATE',
+  STATE = 'STATE', 
 }

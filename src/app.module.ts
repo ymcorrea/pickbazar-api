@@ -28,7 +28,7 @@ import { UploadsModule } from "./uploads/uploads.module";
 import { UsersModule } from "./users/users.module";
 import { WishlistsModule } from "./wishlists/wishlists.module";
 import { WithdrawsModule } from "./withdraws/withdraws.module";
-
+ 
 @Module({
   imports: [
     TypeOrmModule.forRoot(DatabaseConfig),

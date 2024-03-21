@@ -18,7 +18,7 @@ export class WithdrawsService {
 
   getWithdraws({
     limit,
-    page,
+    page, 
     status,
     shop_id,
   }: GetWithdrawsDto): WithdrawPaginator {

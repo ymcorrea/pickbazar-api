@@ -10,7 +10,7 @@ export class SettingsController {
   create(@Body() createSettingDto: CreateSettingDto) {
     return this.settingsService.create(createSettingDto);
   }
-
+ 
   @Get()
   findAll() {
     return this.settingsService.findAll();

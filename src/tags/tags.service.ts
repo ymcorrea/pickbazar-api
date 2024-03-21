@@ -9,7 +9,7 @@ import { Tag } from "./entities/tag.entity";
 
 const tags = plainToClass(Tag, tagsJson);
 
-const options = {
+const options = { 
   keys: ["name"],
   threshold: 0.3,
 };

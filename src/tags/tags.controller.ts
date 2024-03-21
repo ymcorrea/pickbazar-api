@@ -6,7 +6,7 @@ import {
   Param,
   Post,
   Put,
-  Query,
+  Query, 
 } from "@nestjs/common";
 import { GetTagsDto, TagPaginator } from "./dto/get-tags.dto";
 import { CreateTagDto, UpdateTagDto } from "./dto/tag.dto";

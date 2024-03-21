@@ -5,7 +5,7 @@ import Fuse from "fuse.js";
 import { paginate } from "src/common/pagination/paginate";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { GetUsersDto, UserPaginator } from "./dto/get-users.dto";
-import { UpdateUserDto } from "./dto/update-user.dto";
+import { UpdateUserDto } from "./dto/update-user.dto"; 
 import { User } from "./entities/user.entity";
 
 const users = plainToClass(User, usersJson);

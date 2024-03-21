@@ -8,7 +8,7 @@ export class GetShippingsDto {
 
 export enum QueryShippingClassesOrderByColumn {
   CREATED_AT = "CREATED_AT",
-  UPDATED_AT = "UPDATED_AT",
+  UPDATED_AT = "UPDATED_AT", 
   NAME = "NAME",
   AMOUNT = "AMOUNT",
   IS_GLOBAL = "IS_GLOBAL",

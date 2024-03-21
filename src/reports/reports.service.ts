@@ -12,5 +12,5 @@ export class ReportsService {
     return {
       data: myReports,
     };
-  }
+  } 
 }
