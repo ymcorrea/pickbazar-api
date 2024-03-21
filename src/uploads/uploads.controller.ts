@@ -5,7 +5,7 @@ import {
   UploadedFiles,
 } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
-import { UploadsService } from './uploads.service';
+import { UploadsService } from './uploads.service'; 
 
 @Controller('attachments')
 export class UploadsController {

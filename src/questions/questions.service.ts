@@ -9,7 +9,7 @@ import { Question } from "./entities/question.entity";
 
 const questions = plainToClass(Question, questionsJSON);
 const options = {
-  keys: [],
+  keys: [], 
   threshold: 0.3,
 };
 const fuse = new Fuse(questions, options);

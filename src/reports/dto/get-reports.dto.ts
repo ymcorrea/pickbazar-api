@@ -5,7 +5,7 @@ import { MyReports } from "../entities/report.entity";
 
 export class MyReportPaginator extends Paginator<MyReports> {
   data: MyReports[];
-}
+} 
 
 export class GetMyReportDto extends PaginationArgs {
   orderBy?: QueryReviewsOrderByColumn;

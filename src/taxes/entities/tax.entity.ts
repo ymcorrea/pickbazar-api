@@ -10,7 +10,7 @@ export class Tax extends CoreEntity {
   @Column()
   is_global: boolean;
   @Column()
-  country?: string;
+  country?: string; 
   @Column()
   state?: string;
   @Column()

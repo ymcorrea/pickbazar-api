@@ -12,3 +12,4 @@ export class GetWithdrawsDto extends PaginationArgs {
   status?: string;
   shop_id?: number;
 }
+ 

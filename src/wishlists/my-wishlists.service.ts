@@ -9,7 +9,7 @@ import { UpdateWishlistDto } from './dto/update-wishlists.dto';
 import wishlistsJSON from '@db/wishlists.json';
 import { Product } from '../products/entities/product.entity';
 import productsJson from '@db/products.json';
-
+ 
 const products = plainToClass(Product, productsJson);
 const wishlists = plainToClass(Wishlist, wishlistsJSON);
 

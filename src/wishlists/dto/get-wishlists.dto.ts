@@ -7,7 +7,7 @@ export class WishlistPaginator extends Paginator<Wishlist> {
   data: Wishlist[];
 }
 
-export class GetWishlistDto extends PaginationArgs {
+export class GetWishlistDto extends PaginationArgs { 
   orderBy?: QueryReviewsOrderByColumn;
   sortedBy?: SortOrder;
   search?: string;

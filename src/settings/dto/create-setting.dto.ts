@@ -5,3 +5,4 @@ export class CreateSettingDto extends OmitType(Setting, [
   'created_at',
   'updated_at',
 ]) {}
+ 

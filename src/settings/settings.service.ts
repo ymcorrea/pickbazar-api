@@ -6,7 +6,7 @@ import { UpdateSettingDto } from "./dto/update-setting.dto";
 import { Setting } from "./entities/setting.entity";
 
 const settings = plainToClass(Setting, settingsJson);
-
+ 
 @Injectable()
 export class SettingsService {
   private settings: Setting = settings;

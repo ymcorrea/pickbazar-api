@@ -8,3 +8,4 @@ export class CreateWithdrawDto extends PickType(Withdraw, [
   'payment_method',
   'shop_id',
 ]) {}
+ 

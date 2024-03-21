@@ -6,7 +6,7 @@ import { Tag } from "../entities/tag.entity";
 
 export class TagPaginator extends Paginator<Tag> {
   data: Tag[];
-}
+} 
 
 export class GetTagsDto extends PaginationArgs {
   orderBy?: QueryTagsOrderByColumn;

@@ -10,7 +10,7 @@ enum Permission {
   CUSTOMER = "Customer",
 }
 export class CreateUserDto extends PickType(User, [
-  "name",
+  "name", 
   "email",
   "password",
 ]) {

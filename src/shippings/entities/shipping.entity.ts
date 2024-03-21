@@ -6,7 +6,7 @@ export class Shipping extends CoreEntity {
   @Column()
   name: string;
   @Column()
-  amount: number;
+  amount: number; 
   @Column()
   is_global: boolean;
   @Column()

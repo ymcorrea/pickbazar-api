@@ -9,7 +9,7 @@ import {
   Query,
 } from "@nestjs/common";
 import { CreateProfileDto } from "./dto/create-profile.dto";
-import { CreateUserDto } from "./dto/create-user.dto";
+import { CreateUserDto } from "./dto/create-user.dto"; 
 import { GetUsersDto } from "./dto/get-users.dto";
 import { UpdateProfileDto } from "./dto/update-profile.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";

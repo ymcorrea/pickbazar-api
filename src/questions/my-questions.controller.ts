@@ -20,7 +20,7 @@ export class MyQuestionsController {
   // In product single page front-end all the questions apperaed. It should be based on product ID.
   @Get()
   findAll(@Query() query: GetQuestionDto) {
-    return this.myQuestionService.findMyQuestions(query);
+    return this.myQuestionService.findMyQuestions(query); 
   }
   // show one
   @Get(":id")

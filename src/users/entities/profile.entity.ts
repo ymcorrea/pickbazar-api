@@ -8,7 +8,7 @@ export class Profile extends CoreEntity {
   @Column()
   bio?: string;
 
-  // @Column()
+  // @Column() 
   // socials?: Social[];
 
   @Column()

@@ -7,3 +7,4 @@ import { TypesController } from './types.controller';
   providers: [TypesService],
 })
 export class TypesModule {}
+ 

@@ -15,7 +15,7 @@ import { TaxesService } from "./taxes.service";
 @Controller("taxes")
 export class TaxesController {
   constructor(private readonly taxesService: TaxesService) {}
-
+ 
   @Post()
   create(@Body() createTaxDto: CreateTaxDto) {
     return this.taxesService.create(createTaxDto);

@@ -5,7 +5,7 @@ import { Column, Entity } from "typeorm";
 export class Tag extends CoreEntity {
   @Column()
   name: string;
-  @Column()
+  @Column() 
   slug: string;
   @Column()
   parent: number;

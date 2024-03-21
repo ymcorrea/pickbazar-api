@@ -7,7 +7,7 @@ export class CreateTagDto extends PickType(Tag, [
   "details",
   // "image",
   "icon",
-  "language",
+  "language", 
 ]) {}
 
 export class UpdateTagDto extends PartialType(CreateTagDto) {}

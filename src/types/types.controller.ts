@@ -7,7 +7,7 @@ import {
   Param,
   Delete,
   Query,
-} from '@nestjs/common';
+} from '@nestjs/common'; 
 import { TypesService } from './types.service';
 import { CreateTypeDto } from './dto/create-type.dto';
 import { UpdateTypeDto } from './dto/update-type.dto';

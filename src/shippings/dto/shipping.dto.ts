@@ -6,6 +6,6 @@ export class CreateShippingDto extends PickType(Shipping, [
   "amount",
   "is_global",
   "type",
-]) {}
+]) {} 
 
 export class UpdateShippingDto extends PartialType(CreateShippingDto) {}

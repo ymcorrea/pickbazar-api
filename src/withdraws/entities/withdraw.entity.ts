@@ -12,7 +12,7 @@ export class Withdraw extends CoreEntity {
 export enum WithdrawStatus {
   APPROVED = "Approved",
   PENDING = "Pending",
-  ON_HOLD = "On hold",
+  ON_HOLD = "On hold", 
   REJECTED = "Rejected",
   PROCESSING = "Processing",
 }
