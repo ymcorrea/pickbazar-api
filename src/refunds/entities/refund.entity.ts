@@ -15,3 +15,4 @@ export class Refund extends CoreEntity {
   order: Order; 
   customer: User;
 }
+ 

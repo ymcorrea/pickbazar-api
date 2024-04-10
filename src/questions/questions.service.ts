@@ -16,7 +16,7 @@ const fuse = new Fuse(questions, options);
 
 @Injectable()
 export class QuestionService {
-  private question: Question[] = questions;
+  private question: Question[] = questions; 
 
   findAllQuestions({
     limit,

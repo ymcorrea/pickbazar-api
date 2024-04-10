@@ -16,7 +16,7 @@ export class AttributesService {
   }
 
   findAll() {
-    return this.attributes;
+    return this.attributes; 
   }
 
   findOne(param: string) {

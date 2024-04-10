@@ -9,3 +9,4 @@ export class CreateOrderStatusDto extends PickType(OrderStatus, [
 ]) {}
 
 export class UpdateOrderStatusDto extends PartialType(CreateOrderStatusDto) {}
+ 

@@ -14,7 +14,7 @@ const products = plainToClass(Product, productsJson);
 const options = {
   keys: [
     "name",
-    "type.slug",
+    "type.slug", 
     "categories.slug",
     "status",
     "author.slug",

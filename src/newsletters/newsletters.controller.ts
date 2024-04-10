@@ -11,3 +11,4 @@ export class NewslettersController {
     return this.newslettersService.subscribeToNewsletter(body);
   }
 }
+ 

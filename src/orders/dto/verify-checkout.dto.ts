@@ -15,3 +15,4 @@ export class VerifiedCheckoutData {
   wallet_currency: number;
   wallet_amount: number;
 }
+ 

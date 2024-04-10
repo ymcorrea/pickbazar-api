@@ -14,7 +14,7 @@ export class CreateCouponDto extends PickType(Coupon, [
   "active_from",
   "language",
 ]) {}
-
+ 
 export class UpdateCouponDto extends PartialType(CreateCouponDto) {}
 
 export class VerifyCouponInput {
