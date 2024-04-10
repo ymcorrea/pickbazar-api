@@ -18,3 +18,4 @@ export class Manufacturer extends CoreEntity {
   language?: string;
   translated_languages?: string[];
 }
+ 

@@ -19,7 +19,7 @@ export class CreateOrderDto {
   billing_address?: UserAddressInput;
   shipping_address?: UserAddressInput;
   language?: string;
-}
+} 
 
 export class UserAddressInput {
   street_address: string;

@@ -7,3 +7,4 @@ import { NewslettersService } from "./newsletters.service";
   providers: [NewslettersService],
 })
 export class NewslettersModule {}
+ 

@@ -17,7 +17,7 @@ export class Coupon extends CoreEntity {
   description?: string;
 
   // orders?: Order[];
-
+ 
   @Column()
   type: CouponType;
 

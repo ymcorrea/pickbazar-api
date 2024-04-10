@@ -9,3 +9,4 @@ export class CreateFeedBackDto extends PickType(Feedback, [
 ]) {}
 
 export class UpdateFeedBackDto extends PartialType(CreateFeedBackDto) {}
+ 

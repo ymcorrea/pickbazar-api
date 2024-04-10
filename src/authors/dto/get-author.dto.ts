@@ -18,5 +18,5 @@ export class GetAuthorDto extends PaginationArgs {
 export enum QueryAuthorsOrderByColumn {
   CREATED_AT = "CREATED_AT",
   NAME = "NAME",
-  UPDATED_AT = "UPDATED_AT",
+  UPDATED_AT = "UPDATED_AT", 
 }

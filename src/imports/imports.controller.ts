@@ -19,6 +19,6 @@ export class ImportsController {
   @Post("import-variation-options")
   importVariationOptions(@Body() importVariationOptionsDto: ImportDto) {
     console.log(importVariationOptionsDto);
-    return true;
+    return true; 
   }
 }
